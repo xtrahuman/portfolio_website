@@ -1,0 +1,145 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #191765;
+
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+}
+
+.align-header {
+  margin-top: 29px;
+}
+
+.align-header a {
+  margin-left: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+}
+
+.align-header .menubar {
+  margin-right: 24px;
+}
+.menubar {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-flex {
+  display: none;
+}
+
+/* .align-circle{
+    display:flex;
+    justify-content: center;
+} */
+
+.background-circle {
+  display: flex;
+  justify-content: center;
+  background: url(asset/circle\ 1\ header@2x.png) -10 50% no-repeat; /* background: #EDECFF; */
+  /* box-shadow: 24px 24px; */
+  /* height: 184px;
+    width:184px; */
+  border-radius: 50%;
+}
+.main-head {
+}
+
+.main-head h1 {
+  font-family: Roboto;
+  color: #7d73fc;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: 0.3700000047683716px;
+  text-align: center;
+}
+
+.main-head h2 {
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+@media all and (max-width: 500px) {
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    /* width:350px; */
+  }
+  .menubar {
+    display: inline-block;
+    /* align-self: flex-end; */
+  }
+
+  .vector1,
+  .vector2,
+  .vector3 {
+    width: 33.33px;
+    height: 2px;
+    background-color: #acb7c3;
+    margin: 10.42px 0;
+  }
+}
+
+.background-circle {
+  background: url(asset/Ellipse\ 18.svg);
+  border-radius: 0%;
+  background-repeat: no-repeat;
+  text-align: center;
+  /* margin-left: -180px; */
+}
+
+.main-head {
+  padding-bottom: 20px;
+  margin: 24px auto;
+  justify-self: center;
+  margin-top: 91px;
+}
+
+section .main-paragraph {
+  display: flex;
+  text-align: center;
+  justify-self: center;
+  margin-left: 24px;
+  margin-right:24px;
+  margin-top: 20px;
+  font-style: Regular;
+  font-size: 20px;
+  line-height: 28px;
+  vertical-align: Top;
+  color:#C8C8D4;
+
+}
