@@ -5,7 +5,7 @@
 ## Description
 > this is the first milestone in the process of creating my portfolio website 
 
-![screenshot](./mobile_header-shot.png)
+![screenshot](./mobile_header-shot.PNG)
 
 
 ## Built With
