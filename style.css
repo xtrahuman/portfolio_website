@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: #191765;
+  color: #fff;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: medium;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header-flex {
+  display: flex;
+  align-items: center;
+}
+
+.align-header {
+  margin-top: 29px;
+}
+
+.align-header a {
+  margin-left: 24px;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+}
+
+.align-header .menubar {
+  margin-right: 24px;
+}
+
+.nav-flex {
+  display: none;
+}
+
+.background-circle {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.main-head h1 {
+  color: #7d73fc;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: 0.3700000047683716px;
+  text-align: center;
+}
+
+.main-head h2 {
+  color: #edecff;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menubar {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .vector1,
+  .vector2,
+  .vector3 {
+    width: 33.33px;
+    height: 2px;
+    background-color: #acb7c3;
+    margin: 10.42px 0;
+  }
+
+  .align-circle {
+    margin-top: -50px;
+    margin-bottom: 40px;
+  }
+
+  .background-circle {
+    background: url(asset/Ellipse\ 18.svg);
+    background-repeat: no-repeat;
+    border-radius: 0%;
+    text-align: center;
+  }
+
+  .main-head h2 {
+    font-size: 32px;
+    font-style: normal;
+    padding: 12px 12px;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-align: center;
+  }
+}
+
+.main-head {
+  padding-bottom: 18px;
+  margin: 91px 24px 0;
+  justify-self: center;
+}
+
+section .main-paragraph {
+  display: flex;
+  text-align: center;
+  justify-self: center;
+  margin: 0 24px;
+  font-size: 20px;
+  line-height: 28px;
+  vertical-align: top;
+  color: #c8c8d4;
+}
