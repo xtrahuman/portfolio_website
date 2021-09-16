@@ -19,22 +19,20 @@
 - Make sure that the Gitflow is used correctly
 - Make sure that the work is well Documented
 
-## General Procedures
-- Documented the project in a professional way
-- Created a new GitHub repo
-- Created a new branch according to the Github flow rules
-- Added .gitignore file
-- I set up a linter for HTML and CSS and  made sure that any files that are not relevant are ignored by git.
-- Added descriptive README file to my project
-- build the first 3 sections of the mobile website using the template you chose
-- Opened a pull request.
+## Procedure to clone project
+
+from your terminal type git clone https://github.com/xtrahuman/portfolio_website.git
+
+## project link
+
+[site link](https://xtrahuman.github.io/portfolio_website/)
 
 ## Author
 
 👤 **Author**
 
-- GitHub: [@githubhandle](https://github.com/xtrahuman)
-- Twitter: [@twitterhandle](https://twitter.com/xtrahuman)
+- GitHub: [@xtrahuman](https://github.com/xtrahuman)
+- Twitter: [@xtrahuman](https://twitter.com/xtrahuman)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/tochukwu-okpara-449528197)
 
 
