@@ -43,11 +43,6 @@ body {
   color: #fff;
 }
 
-.menubar {
-  display: none;
-  cursor: pointer;
-}
-
 .align-header .menubar {
   margin-right: 24px;
 }
@@ -56,19 +51,11 @@ body {
   display: none;
 }
 
-/* .align-circle{
-    display:flex;
-    justify-content: center;
-} */
-
 .background-circle {
   display: flex;
   justify-content: center;
   border-radius: 50%;
 }
-
-/* .main-head {
-} */
 
 .main-head h1 {
   color: #7d73fc;
@@ -81,6 +68,7 @@ body {
 }
 
 .main-head h2 {
+  color: #edecff;
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -93,14 +81,11 @@ body {
   .header-flex {
     display: flex;
     justify-content: space-between;
-
-    /* width:350px; */
   }
 
   .menubar {
     display: inline-block;
-
-    /* align-self: flex-end; */
+    cursor: pointer;
   }
 
   .vector1,
@@ -112,28 +97,39 @@ body {
     margin: 10.42px 0;
   }
 
+  .align-circle {
+    margin-top: -50px;
+    margin-bottom: 40px;
+  }
+
   .background-circle {
     background: url(asset/Ellipse\ 18.svg);
     background-repeat: no-repeat;
     border-radius: 0%;
     text-align: center;
+  }
 
-    /* margin-left: -180px; */
+  .main-head h2 {
+    font-size: 32px;
+    font-style: normal;
+    padding: 12px 12px;
+    line-height: 44px;
+    letter-spacing: 0;
+    text-align: center;
   }
 }
 
 .main-head {
-  padding-bottom: 20px;
-  margin: 24px auto;
+  padding-bottom: 18px;
+  margin: 91px 24px 0;
   justify-self: center;
-  margin-top: 91px;
 }
 
 section .main-paragraph {
   display: flex;
   text-align: center;
   justify-self: center;
-  margin: 20px 24px 0;
+  margin: 0 24px;
   font-size: 20px;
   line-height: 28px;
   vertical-align: top;
