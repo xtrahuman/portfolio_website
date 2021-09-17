@@ -3,21 +3,22 @@
 # Portfolio: setup and mobile version skeleton
 
 ## Description
-> this is the first milestone in the process of creating my portfolio website 
+> this is the skeleton and setup of mobile verion for my personal portfolio 
 
-![screenshot](./mobile_header-shot.PNG)
 
+Header                                            |  Frameworks and languages
+:------------------------------------------------:|:-----------------------------------------------:
+![](./public/mobile_header-shot.PNG)              |  ![](./public/Capture.PNG)
+
+Recent Works                                      |  Projects
+:------------------------------------------------:|:-----------------------------------------------:
+![](./public/my_works.PNG)                        |  ![](./public/multi-stories.PNG)
+ 
 
 ## Built With
 
 - html
 - css
-
-
-## Requirements
-- Make sure that there is no linter errors.
-- Make sure that the Gitflow is used correctly
-- Make sure that the work is well Documented
 
 ## Procedure to clone project
 
