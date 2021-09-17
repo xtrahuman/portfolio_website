@@ -135,6 +135,10 @@ section .main-paragraph {
   font-weight: 500;
 }
 
+.grid {
+  display: grid;
+}
+
 @media all and (max-width: 500px) {
   .header-flex {
     display: flex;
@@ -228,22 +232,29 @@ section .main-paragraph {
     width: 88%;
     margin: 0 24px;
     color: #9490ff;
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 35px;
+    font-weight: 400;
     line-height: 52px;
     margin-top: 84px;
   }
 
-  .work-post-background img {
+  .work-post-background {
     position: absolute;
-    top: 1590px;
+    background: url(./asset/portfolio_background_shapes.svg);
+    background-repeat: no-repeat;
+    top: 1560px;
     width: 100%;
+    height: 440vh;
   }
 
   .work-container {
     width: 88%;
     height: 100%;
     margin: 24px auto;
+  }
+
+  .grid {
+    grid-template-columns: 100%;
   }
 
   .placeholder {
