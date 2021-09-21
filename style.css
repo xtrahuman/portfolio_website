@@ -251,6 +251,7 @@ section .main-paragraph {
     background: url(./asset/portfolio_background_shapes.svg);
     background-repeat: no-repeat;
     top: 1560px;
+    right: 0;
     width: 100%;
     height: 440vh;
   }
