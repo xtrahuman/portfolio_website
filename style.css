@@ -114,6 +114,10 @@ section .main-paragraph {
   list-style-type: none;
 }
 
+.form-sect ul li {
+  list-style-type: none;
+}
+
 .social-icon ul li:last-child {
   margin-right: 0;
 }
@@ -191,6 +195,10 @@ section .main-paragraph {
   .box-flex {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .box-ul ul li {
+    list-style-type: none;
   }
 
   .lang-frame {
@@ -322,7 +330,108 @@ section .main-paragraph {
     letter-spacing: 0.03em;
   }
 
-  .project-btn button:hover .btn {
+  .project-btn button:hover {
+    color: white;
     filter: drop-shadow(0 8px 16px rgba(125, 115, 252, 0.48));
   }
+}
+
+.form-sect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-sect ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-section {
+  height: 48px;
+  width: 327px;
+  border: 1px solid black;
+}
+
+.email-section {
+  height: 48px;
+  width: 327px;
+  margin-top: 24px;
+}
+
+.message-section {
+  width: 327px;
+  height: 148px;
+  margin-top: 24px;
+}
+
+.form-sect ul li button {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  margin-top: 40px;
+}
+
+.form-sect ul li button:enabled {
+  background: rgba(125, 115, 252, 1);
+  color: #edecff;
+}
+
+.form-sect ul li button:hover {
+  background: rgba(125, 115, 252, 1);
+  color: white;
+  filter: drop-shadow(0 8px 16px rgba(125, 115, 252, 0.48));
+}
+
+.contact-us {
+  margin-top: 120px;
+  margin-bottom: 40px;
+}
+
+.contact-us h3 {
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 44px;
+  text-align: center;
+  color: rgba(147, 144, 255, 1);
+}
+
+.contact-us p {
+  margin-top: 24px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(245, 245, 255, 1);
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  margin-bottom: 40px;
+}
+
+.footer .hr-flex {
+  margin-top: 57px;
+}
+
+.footer .social-icon ul {
+  margin-top: 25px;
+}
+
+.footer .footer-email {
+  color: #ebebff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
 }
