@@ -197,7 +197,7 @@ section .main-paragraph {
     flex-wrap: wrap;
   }
 
-  .box-ul ul li{
+  .box-ul ul li {
     list-style-type: none;
   }
 
