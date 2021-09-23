@@ -1,18 +1,18 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Portfolio: setup and mobile version skeleton
+# Portfolio: setup mobile and desktop version
 
 ## Description
-> this is the skeleton and setup of mobile verion for my personal portfolio 
+> this is mobile version and desktop version of my personal portfolio website
 
 
-Header                                            |  Frameworks and languages
+Desktop view                                      |  Mobile view Header
 :------------------------------------------------:|:-----------------------------------------------:
-![](./public/mobile_header-shot.PNG)              |  ![](./public/Capture.PNG)
+![](./public/dektop_view.PNG)                     |  ![](./public/mobile_header-shot.PNG)
 
-Recent Works                                      |  Projects
+Frameworks and languages                          |  Projects
 :------------------------------------------------:|:-----------------------------------------------:
-![](./public/my_works.PNG)                        |  ![](./public/multi-stories.PNG)
+![](./public/Capture.PNG)                         |  ![](./public/multi-stories.PNG)
  
 
 ## Built With
