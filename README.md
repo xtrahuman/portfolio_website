@@ -8,7 +8,7 @@
 
 Desktop view                                      |  Mobile view Header
 :------------------------------------------------:|:-----------------------------------------------:
-![](./public/dektop_view.PNG)                     |  ![](./public/mobile_header-shot.PNG)
+![](./public/desktop_view.PNG)                     |  ![](./public/mobile_header-shot.PNG)
 
 Frameworks and languages                          |  Projects
 :------------------------------------------------:|:-----------------------------------------------:
