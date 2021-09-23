@@ -3,7 +3,7 @@
 # Portfolio: setup mobile and desktop version
 
 ## Description
-> this is mobile version and desktop version of my personal portfolio website
+> this is mobile and desktop version of my personal portfolio website
 
 
 Desktop view                                      |  Mobile view Header
