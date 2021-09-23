@@ -16,17 +16,17 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #191765; 
+  background: #191765;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #7d73fc; 
+  background: #7d73fc;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #9490ff; 
+  background: #9490ff;
 }
 
 @media all and (min-width: 501px) {
@@ -37,10 +37,8 @@
       no-repeat url(./asset/Ellipsed-19.svg) 0% 37%,
       no-repeat url(./asset/Ellipsed-20.svg) 100% 53%,
       no-repeat url(./asset/Ellipsed-21.svg) 0% 64%,
-      no-repeat url(./asset/Ellipsed-22.svg) 100% 73%; 
+      no-repeat url(./asset/Ellipsed-22.svg) 100% 73%;
   }
-
-  
 }
 
 @media all and (max-width: 500px) {
