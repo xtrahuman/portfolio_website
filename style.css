@@ -117,6 +117,18 @@ main {
   line-height: 72px;
   letter-spacing: 0.37px;
   text-align: center;
+  animation-name: resize;
+  animation-duration: 2.5s;
+}
+
+@keyframes resize {
+  from {
+    font-size: 0;
+  }
+
+  to {
+    font-size: 48px;
+  }
 }
 
 .main-head h2 {
@@ -381,6 +393,21 @@ input[type="text"] {
     display: flex;
   }
 
+  .nav-flex a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+    margin: 0;
+    transition: all 0.5s ease-in;
+  }
+
+  .nav-flex a:hover {
+    font-size: 18px;
+  }
+
   .nav-flex ul li {
     list-style-type: none;
     margin-right: 32px;
@@ -391,11 +418,6 @@ input[type="text"] {
   .box-size ul li {
     color: #f5f5ff;
     list-style-type: none;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0;
-    text-align: left;
     margin-bottom: 20px;
   }
 
@@ -434,6 +456,16 @@ input[type="text"] {
     font-size: 90px;
     font-weight: 700;
     line-height: 105px;
+  }
+
+  @keyframes resize {
+    from {
+      font-size: 0;
+    }
+
+    to {
+      font-size: 90px;
+    }
   }
 
   .main-head h2 {
@@ -525,6 +557,23 @@ input[type="text"] {
     font-weight: 700;
     line-height: 114px;
     margin-top: 232px;
+  }
+
+  .work-profile h3 {
+    animation-duration: 2s;
+    animation-name: slider;
+  }
+
+  @keyframes slider {
+    from {
+      margin-left: -200%;
+      width: 100%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
   }
 
   .work-container {
