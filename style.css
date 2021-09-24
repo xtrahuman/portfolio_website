@@ -117,6 +117,22 @@ main {
   line-height: 72px;
   letter-spacing: 0.37px;
   text-align: center;
+  animation-name: resize;
+  animation-duration: 1s;
+}
+
+@keyframes resize {
+  from {
+    font-size: 48px;
+  }
+
+  95%{
+    font-size: 0px;
+  }
+
+  to {
+    font-size: 48px;
+  }
 }
 
 .main-head h2 {
@@ -526,6 +542,25 @@ input[type="text"] {
     line-height: 114px;
     margin-top: 232px;
   }
+
+  .work-profile h3 {
+    animation-duration: 5s;
+    animation-name: slider;
+  }
+
+  @keyframes slider{
+    from {
+      margin-left: -200%;
+      width: 100%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+
 
   .work-container {
     width: 85%;
