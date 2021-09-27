@@ -21,8 +21,10 @@ Frameworks and languages                          |  Projects
 - css
 
 ## Procedure to clone project
-
-from your terminal type git clone https://github.com/xtrahuman/portfolio_website.git
+- open your terminal
+- type git clone https://github.com/xtrahuman/portfolio_website.git
+- type cd portfolio_website to change directory to the folder of the project
+- run the project in your local machine
 
 ## project link
 
