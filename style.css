@@ -338,7 +338,7 @@ button:hover {
   margin-bottom: 40px;
 }
 
-.contact-us h3 {
+.contact-us h2 {
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -553,13 +553,13 @@ input[type="text"] {
 
   .work-profile {
     width: 85%;
-    font-size: 64px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 114px;
     margin-top: 232px;
   }
 
-  .work-profile h3 {
+  .work-profile h2 {
     animation-duration: 2s;
     animation-name: slider;
   }
@@ -637,7 +637,7 @@ input[type="text"] {
     width: 684px;
   }
 
-  .contact-us h3 {
+  .contact-us h2 {
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -782,7 +782,7 @@ input[type="text"] {
   .work-profile {
     width: 88%;
     margin: 0 24px;
-    font-size: 35px;
+    font-size: 28px;
     font-weight: 400;
     line-height: 52px;
     margin-top: 84px;
