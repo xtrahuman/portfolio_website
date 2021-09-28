@@ -338,7 +338,7 @@ button:hover {
   margin-bottom: 40px;
 }
 
-.contact-us h3 {
+.contact-us h2 {
   font-size: 32px;
   font-style: normal;
   font-weight: 500;
@@ -637,7 +637,7 @@ input[type="text"] {
     width: 684px;
   }
 
-  .contact-us h3 {
+  .contact-us h2 {
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
