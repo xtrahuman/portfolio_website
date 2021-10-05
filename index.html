@@ -15,7 +15,7 @@
 
         gtag('config', 'UA-208629130-1');
     </script>
-
+    <script src="https://kit.fontawesome.com/31074aacc5.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -30,17 +30,20 @@
     <div class="container">
         <header class="header-flex align-header">
             <a href="">Tochukwu</a>
-            <div class="menubar">
-                <div class="vector1"></div>
-                <div class="vector2"></div>
-                <div class="vector3"></div>
+            <div class="menubar" id="mobile_menu">
+                <div class="vector"></div>
+                <div class="vector"></div>
+                <div class="vector"></div>
             </div>
             <nav class="nav-flex">
                 <ul>
-                    <li><a href="">portfolio</a></li>
-                    <li><a href="">about</a></li>
-                    <li><a href="">contact</a></li>
-                    <li><a href=""><img src="./asset/msg-icon.png" alt="email"></a></li>
+                    <li class="check"><a href="index.html">portfolio <span class="angle-right"><i
+                                    class="fa fa-angle-right"></i></span></a></li>
+                    <li class="check"><a href="#about">about <span class="angle-right"><i
+                                    class="fa fa-angle-right"></i></span></a></li>
+                    <li class="check"><a href="#contact">contact <span class="angle-right"><i
+                                    class="fa fa-angle-right"></i></span></a></li>
+                    <li class="check"><a href="#email"><img src="./asset/msg-icon.png" alt="email"></a></li>
                 </ul>
             </nav>
         </header>
@@ -132,7 +135,7 @@
 
                 </div>
             </div>
-            <section class="all-work-profile">
+            <section class="all-work-profile" id="about">
                 <div class="work-profile">
                     <h2>MY RECENT WORK</h2>
                 </div>
@@ -292,7 +295,7 @@
 
             </section>
 
-            <section class="work-container desktop-container">
+            <section class="work-container desktop-container" id="contact">
                 <div class="contact-us">
                     <h2>CONTACT US</h2>
                     <p>If you have an application you are interested in developing,
@@ -326,7 +329,26 @@
 
                 </div>
             </section>
+            <!-- <section class="modal-pager">
+                <div>
+                    <div>
+                        <h3>Multi-post story</h3>
+                        <div class='close-btn'><i class="fa-solid fa-xmark"></i></div>
+                    </div>
+                    <div>
+                        <img src="" alt="">
+                    </div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it 1960s with the releaLorem Ipsum is simply dummy text of the printing
+                        and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                        1500s, when an unknown Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                        unknown printer took a galley of type and scramble.</p>
+                        <div></div>
 
+                </div>
+            </section> -->
         </main>
 
         <footer>
@@ -344,8 +366,8 @@
                             <li><img src="./asset/Vectorm.png" alt="medium"></li>
                         </ul>
                     </div>
-                    <div class="footer-email">
-                        <p>okpara_tochukwu@gmail.com</p>
+                    <div class="footer-email" id="email">
+                        <p>okpara_tochukwu@yahoo.com</p>
                     </div>
                 </div>
 
@@ -353,6 +375,7 @@
         </footer>
 
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
