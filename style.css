@@ -57,6 +57,20 @@ body {
   position: relative;
 }
 
+.modal-pager {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.modal-container {
+  width: 85%;
+  background-color: red;
+}
+
 .container {
   display: flex;
   flex-direction: column;
