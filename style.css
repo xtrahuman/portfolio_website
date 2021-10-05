@@ -724,7 +724,10 @@ input[type="text"] {
 }
 
   .nav-flex {
-  background-color: red;
+  background:
+  no-repeat url(./asset/shape_mobile\ menu-1.svg) 100% 100%,
+  no-repeat url(./asset/shape_mobile\ menu-2.svg) 0% 76%;
+  background-color: #191765;
   display: block;
   position: fixed;
   width:100%;
