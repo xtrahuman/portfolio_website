@@ -4,7 +4,7 @@ const modal = document.querySelector('.modal-pager');
 const projectButton = document.querySelectorAll('.open-btn');
 const bodyfix = document.querySelector('body');
 
-const PageContent = {
+const PageContent = [{
   title: 'Multi-post story',
   img: 'asset/Snapshoot_Portfolio.png',
   contentText:
@@ -13,37 +13,78 @@ const PageContent = {
   skillsLink2: 'https://github.com/xtrahuman/',
   skillsLink3: 'https://github.com/xtrahuman/',
   skillsLink4: 'https://github.com/xtrahuman/',
-  skills1: 'css',
+  skills1: 'css1',
   skills2: 'html',
   skills3: 'bootStrap',
   skills4: 'ruby',
-};
+}, {
+  title: 'Multi-post story',
+  img: 'asset/Snapshoot_Portfolio.png',
+  contentText:
+      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
+  skillsLink1: 'https://github.com/xtrahuman/',
+  skillsLink2: 'https://github.com/xtrahuman/',
+  skillsLink3: 'https://github.com/xtrahuman/',
+  skillsLink4: 'https://github.com/xtrahuman/',
+  skills1: 'css2',
+  skills2: 'html',
+  skills3: 'bootStrap',
+  skills4: 'ruby',
+}, {
+  title: 'Multi-post story',
+  img: 'asset/Snapshoot_Portfolio.png',
+  contentText:
+      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
+  skillsLink1: 'https://github.com/xtrahuman/',
+  skillsLink2: 'https://github.com/xtrahuman/',
+  skillsLink3: 'https://github.com/xtrahuman/',
+  skillsLink4: 'https://github.com/xtrahuman/',
+  skills1: 'css3',
+  skills2: 'html',
+  skills3: 'bootStrap',
+  skills4: 'ruby',
+}, {
+  title: 'Multi-post story',
+  img: 'asset/Snapshoot_Portfolio.png',
+  contentText:
+      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
+  skillsLink1: 'https://github.com/xtrahuman/',
+  skillsLink2: 'https://github.com/xtrahuman/',
+  skillsLink3: 'https://github.com/xtrahuman/',
+  skillsLink4: 'https://github.com/xtrahuman/',
+  skills1: 'css4',
+  skills2: 'html',
+  skills3: 'bootStrap',
+  skills4: 'ruby',
+}];
 
 const AddModal = () => {
-  modal.innerHTML = `
+  projectButton.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      modal.innerHTML = `
   <div class="modal-pos">
   <div class="modal-container">
         <div class="modal">
      
             <div class="modal-head">
-               <h3>${PageContent.title}</h3>
+               <h3>${PageContent[index].title}</h3>
                <div class='close-btn'><i class="fa fa-times"></i></div>
             </div>
             <div class="image-sizing">
-             <img src=${PageContent.img} alt="">
+             <img src=${PageContent[index].img} alt="">
             </div>
             <div class="text-center">
             <div class='modal-text'>
-               <p>${PageContent.contentText}</p>
+               <p>${PageContent[index].contentText}</p>
             </div>
            
             <div class="tools modal-tools">
                 <div class="tool-skill">
                     <ul>
-                        <li><a href=${PageContent.skillsLink1}></a>${PageContent.skills1}</li>
-                        <li><a href=${PageContent.skillsLink2}></a>${PageContent.skills2}</li>
-                        <li><a href=${PageContent.skillsLink3}></a>${PageContent.skills3}</li>
-                        <li><a href=${PageContent.skillsLink4}></a>${PageContent.skills4}</li>
+                        <li><a href=${PageContent[index].skillsLink1}></a>${PageContent[index].skills1}</li>
+                        <li><a href=${PageContent[index].skillsLink2}></a>${PageContent[index].skills2}</li>
+                        <li><a href=${PageContent[index].skillsLink3}></a>${PageContent[index].skills3}</li>
+                        <li><a href=${PageContent[index].skillsLink4}></a>${PageContent[index].skills4}</li>
                     </ul>
                 </div>
                 </div>
@@ -56,12 +97,14 @@ const AddModal = () => {
         </div>   
  </div>
 </div>`;
-  const closeproject = document.querySelector('.close-btn');
-  const closebtn = () => {
-    modal.classList.remove('show');
-    bodyfix.classList.remove('static');
-  };
-  closeproject.addEventListener('click', closebtn);
+      const closeproject = document.querySelector('.close-btn');
+      const closebtn = () => {
+        modal.classList.remove('show');
+        bodyfix.classList.remove('static');
+      };
+      closeproject.addEventListener('click', closebtn);
+    });
+  });
 };
 
 window.addEventListener('DOMContentLoaded', AddModal);
