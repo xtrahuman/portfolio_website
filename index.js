@@ -5,7 +5,21 @@ const links = document.querySelectorAll(".targetlink");
 const projectButton = document.querySelectorAll(".open-btn");
 const bodyfix = document.querySelector("body");
 
-
+const PageContent = {
+  title: "Multi-post story",
+  img: "asset/Snapshoot_Portfolio.png",
+  contentText:
+    "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
+  skillsLink1: "https://github.com/xtrahuman/",
+  skillsLink2: "https://github.com/xtrahuman/",
+  skillsLink3: "https://github.com/xtrahuman/",
+  skillsLink4: "https://github.com/xtrahuman/",
+  skillsLink4: "https://github.com/xtrahuman/",
+  skills1: "css",
+  skills2: "html",
+  skills3: "bootStrap",
+  skills4: "ruby",
+};
 
 const AddModal = () => {
   modal.innerHTML = `
@@ -38,8 +52,8 @@ const AddModal = () => {
 
             </div>
             <div class='view-btn'>
-            <button type="button" class="btn btn1">see project</button>
-            <button type="button" class="btn btn2">see project</button>
+            <button type="button" class="btn btn1">see project <span><img src="./asset/Vector1.png"></span></button>
+            <button type="button" class="btn btn2">see live <span><img src="./asset/icon.png"></span></button>
             </div>
         </div>   
  </div>
