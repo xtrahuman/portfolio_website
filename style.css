@@ -57,18 +57,72 @@ body {
   position: relative;
 }
 
+body.static {
+  overflow: hidden;
+}
+
 .modal-pager {
   display: none;
   justify-content: center;
   position: fixed;
-  top: 0%;
+  z-index: 5;
+  top: 0;
   width: 100%;
-  background-color: transparent;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-pager.show {
+  display: flex;
+}
+
+.modal-pos {
+  display: flex;
+  width: 85%;
+  overflow: hidden;
+  position: relative;
+  min-height: 100%;
+  justify-content: center;
 }
 
 .modal-container {
-  width: 85%;
-  background-color: red;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding-left: 10px;
+  right: -17px;
+  width: 100%;
+  padding-right: 17px;
+  background-color: #191765;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.modal {
+  width: 90%;
+  text-align: center;
+  justify-content: center;
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal p {
+  font-size: 12px;
+}
+
+.image-sizing {
+  width: 100%;
+}
+
+.image-sizing img {
+  width: 100%;
+  min-height: 181px;
 }
 
 .container {
@@ -394,6 +448,16 @@ input[type="text"] {
   text-align: center;
 }
 
+.view-btn .btn {
+  font-size: 12px;
+}
+
+.view-btn .btn img {
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+}
+
 @media all and (min-width: 501px) {
   .nav-flex {
     display: flex;
@@ -708,6 +772,71 @@ input[type="text"] {
     justify-content: center;
     margin: 20px 0;
   }
+
+  .modal-pos {
+    display: flex;
+    width: 85%;
+    overflow: hidden;
+    position: relative;
+    min-height: 100%;
+    justify-content: center;
+  }
+
+  .modal-container {
+    padding-left: 10px;
+    right: 0;
+    width: 100%;
+    padding-right: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .modal {
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .modal-head {
+    margin: 24px 0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .modal-head .fa-times {
+    font-size: 20px;
+    color: #acb7c3;
+  }
+
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-text {
+    margin: 40px 0;
+    width: 70%;
+    text-align: center;
+    margin-right: 0;
+  }
+
+  .modal p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  .view-btn .btn1 {
+    margin-bottom: 10px;
+    margin-right: 38px;
+  }
+
+  .view-btn .btn2 {
+    margin-left: 38px;
+    margin-bottom: 20px;
+  }
 }
 
 @media all and (max-width: 500px) {
@@ -915,11 +1044,58 @@ input[type="text"] {
     line-height: 44px;
   }
 
+  .modal-text p {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
   .work-post .work-desc p {
     font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 28px;
     color: #dcdce8;
+  }
+
+  .modal-container {
+    min-height: 100%;
+  }
+
+  .modal-head {
+    margin: 24px 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .modal-head .fa-times {
+    font-size: 16px;
+    color: #acb7c3;
+  }
+
+  .modal-text {
+    margin: 24px 0;
+  }
+
+  .modal-tools .tool-skill ul li {
+    padding: 10px;
+  }
+
+  .view-btn {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .view-btn .btn1 {
+    margin-bottom: 10px;
+  }
+
+  .view-btn .btn2 {
+    margin-bottom: 20px;
   }
 }
