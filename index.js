@@ -1,24 +1,22 @@
-const menubar = document.querySelector("#mobile_menu");
-const navlink = document.querySelector(".nav-flex");
-const modal = document.querySelector(".modal-pager");
-const links = document.querySelectorAll(".targetlink");
-const projectButton = document.querySelectorAll(".open-btn");
-const bodyfix = document.querySelector("body");
+const menubar = document.querySelector('#mobile_menu');
+const navlink = document.querySelector('.nav-flex');
+const modal = document.querySelector('.modal-pager');
+const projectButton = document.querySelectorAll('.open-btn');
+const bodyfix = document.querySelector('body');
 
 const PageContent = {
-  title: "Multi-post story",
-  img: "asset/Snapshoot_Portfolio.png",
+  title: 'Multi-post story',
+  img: 'asset/Snapshoot_Portfolio.png',
   contentText:
     "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
-  skillsLink1: "https://github.com/xtrahuman/",
-  skillsLink2: "https://github.com/xtrahuman/",
-  skillsLink3: "https://github.com/xtrahuman/",
-  skillsLink4: "https://github.com/xtrahuman/",
-  skillsLink4: "https://github.com/xtrahuman/",
-  skills1: "css",
-  skills2: "html",
-  skills3: "bootStrap",
-  skills4: "ruby",
+  skillsLink1: 'https://github.com/xtrahuman/',
+  skillsLink2: 'https://github.com/xtrahuman/',
+  skillsLink3: 'https://github.com/xtrahuman/',
+  skillsLink4: 'https://github.com/xtrahuman/',
+  skills1: 'css',
+  skills2: 'html',
+  skills3: 'bootStrap',
+  skills4: 'ruby',
 };
 
 const AddModal = () => {
@@ -52,49 +50,47 @@ const AddModal = () => {
 
             </div>
             <div class='view-btn'>
-            <button type="button" class="btn btn1">see project <span><img src="./asset/Vector1.png"></span></button>
-            <button type="button" class="btn btn2">see live <span><img src="./asset/icon.png"></span></button>
+            <button type="button" class="btn btn1">see live<span><img src="./asset/icon.png"></span></button>
+            <button type="button" class="btn btn2">see source<span><img src="./asset/Vector1.png"></span></button>
             </div>
         </div>   
  </div>
 </div>`;
-  const closeproject = document.querySelector(".close-btn");
+  const closeproject = document.querySelector('.close-btn');
   const closebtn = () => {
-    modal.classList.remove("show");
-    bodyfix.classList.remove("static");
+    modal.classList.remove('show');
+    bodyfix.classList.remove('static');
   };
-  closeproject.addEventListener("click", closebtn);
+  closeproject.addEventListener('click', closebtn);
 };
 
-window.addEventListener("DOMContentLoaded", AddModal);
+window.addEventListener('DOMContentLoaded', AddModal);
 
 projectButton.forEach((button) => {
-  button.addEventListener("click", () => {
-    modal.classList.add("show");
-    bodyfix.classList.add("static");
+  button.addEventListener('click', () => {
+    modal.classList.add('show');
+    bodyfix.classList.add('static');
   });
 });
 
 window.onclick = function check(event) {
-  for (let i = 0; i < links.length; i++) {
-    if (
-      event.target.matches(".targetlink") ||
-      event.target.matches(".check") ||
-      event.target.matches(".fa-angle-right")
-    ) {
-      navlink.classList.remove("toggle");
-      menubar.classList.remove("toggle-menu");
-      bodyfix.classList.remove("static");
-    }
+  if (
+    event.target.matches('.targetlink')
+      || event.target.matches('.check')
+      || event.target.matches('.fa-angle-right')
+  ) {
+    navlink.classList.remove('toggle');
+    menubar.classList.remove('toggle-menu');
+    bodyfix.classList.remove('static');
   }
 };
 
 // Display mobile menu
 
 const mobilemenu = () => {
-  menubar.classList.toggle("toggle-menu");
-  navlink.classList.toggle("toggle");
-  bodyfix.classList.toggle("static");
+  menubar.classList.toggle('toggle-menu');
+  navlink.classList.toggle('toggle');
+  bodyfix.classList.toggle('static');
 };
 
-menubar.addEventListener("click", mobilemenu);
+menubar.addEventListener('click', mobilemenu);
