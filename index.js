@@ -23,11 +23,11 @@ function lowerCase(email) {
       }, 2000);
     }
     if (email.validity.valueMissing) {
-        errorMsg.textContent = '*Please Enter an email address';
+        errorMsg.textContent = '*Please you need to enter an email address';
         errorMsg.classList.add('show-error');
     }
     if (!lowerCase(email)) {
-        errorMsg.textContent = '* Please Enter E-mail in small letters';
+        errorMsg.textContent = '* Your email should be in small letters';
         errorMsg.classList.add('show-error');
       setTimeout(() => {
         errorMsg.textContent = '';
@@ -36,7 +36,18 @@ function lowerCase(email) {
     }
   }
   
-
+  submitForm.addEventListener('submit', (e) => {
+      
+    if (!email.validity.valid) {
+      showError();
+      e.preventDefault();
+    }
+    if (!lowerCase(email)) {
+      showError();
+      e.preventDefault();
+    }
+  
+  });
 
 const PageContent = [{
   title: 'Multi-post story',
