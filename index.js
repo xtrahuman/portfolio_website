@@ -91,7 +91,7 @@ const AddModal = () => {
 
             </div>
             <div class='view-btn'>
-            <button type="button" class="btn btn1">see live<span><img src="./asset/icon.png"></span></button>
+            <button type="button" class="btn btn1">see live<span><img src="./asset/Icon.svg"></span></button>
             <button type="button" class="btn btn2">see source<span><img src="./asset/Vector1.png"></span></button>
             </div>
         </div>   
