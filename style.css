@@ -458,6 +458,16 @@ input[type="text"] {
   margin-left: 15px;
 }
 
+#error {
+  color: red;
+  display: none;
+  margin-top: 20px;
+}
+
+#error.show-error {
+  display: block;
+}
+
 @media all and (min-width: 501px) {
   .nav-flex {
     display: flex;

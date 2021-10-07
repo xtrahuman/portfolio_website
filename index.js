@@ -2,7 +2,49 @@ const menubar = document.querySelector('#mobile_menu');
 const navlink = document.querySelector('.nav-flex');
 const modal = document.querySelector('.modal-pager');
 const projectButton = document.querySelectorAll('.open-btn');
+const errorMsg = document.querySelector('#error');
+const submitForm = document.querySelector('.form');
+const email = document.getElementById('mail');
 const bodyfix = document.querySelector('body');
+
+function lowerCase(email) {
+  const str = email.value.toLowerCase();
+  return email.value === str;
+}
+
+function showError() {
+  if (email.validity.typeMismatch) {
+    errorMsg.textContent = '*Please Enter Valid email';
+    errorMsg.classList.add('show-error');
+    setTimeout(() => {
+      errorMsg.textContent = '';
+      errorMsg.classList.remove('show-error');
+    }, 2000);
+  }
+  if (email.validity.valueMissing) {
+    errorMsg.textContent = '*Please you need to enter an email address';
+    errorMsg.classList.add('show-error');
+  }
+  if (!lowerCase(email)) {
+    errorMsg.textContent = '* Your email should be in small letters';
+    errorMsg.classList.add('show-error');
+    setTimeout(() => {
+      errorMsg.textContent = '';
+      errorMsg.classList.remove('show-error');
+    }, 6000);
+  }
+}
+
+submitForm.addEventListener('submit', (e) => {
+  if (!email.validity.valid) {
+    showError();
+    e.preventDefault();
+  }
+  if (!lowerCase(email)) {
+    showError();
+    e.preventDefault();
+  }
+});
 
 const PageContent = [{
   title: 'Multi-post story',
