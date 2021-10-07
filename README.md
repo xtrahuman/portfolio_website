@@ -28,7 +28,7 @@ Frameworks and languages                          |  Projects
 
 ## project link
 
-[site link](https://xtrahuman.github.io/portfolio_website/)
+[site link](https://xtrahuman.github.io/portfolio_website/index.html)
 
 ## Author
 
