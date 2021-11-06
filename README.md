@@ -19,6 +19,8 @@ Frameworks and languages                          |  Projects
 
 - html
 - css
+- bootstrap
+- JavaScript
 
 ## Procedure to clone project
 - open your terminal

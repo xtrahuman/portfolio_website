@@ -47,10 +47,10 @@ submitForm.addEventListener('submit', (e) => {
 });
 
 const PageContent = [{
-  title: 'Multi-post story',
-  img: 'asset/Snapshoot_Portfolio.png',
+  title: 'Save a child Fundraising Program',
+  img: '/public/desktop-head.PNG',
   contentText:
-    "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
+    'My first Microverse capstone project is a fundraising program website for children in need, It contains a list of speakers, the main program section, and about page',
   skillsLink1: 'https://github.com/xtrahuman/',
   skillsLink2: 'https://github.com/xtrahuman/',
   skillsLink3: 'https://github.com/xtrahuman/',
@@ -58,10 +58,10 @@ const PageContent = [{
   skills1: 'css1',
   skills2: 'html',
   skills3: 'bootStrap',
-  skills4: 'ruby',
+  skills4: 'JavaScript',
 }, {
   title: 'Multi-post story',
-  img: 'asset/Snapshoot_Portfolio.png',
+  img: '/public/desktop-head.PNG',
   contentText:
       "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
   skillsLink1: 'https://github.com/xtrahuman/',
