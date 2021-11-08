@@ -48,7 +48,7 @@ submitForm.addEventListener('submit', (e) => {
 
 const PageContent = [{
   title: 'Save a child Fundraising Program',
-  img: '/public/desktop-head.PNG',
+  img: './public/desktop-head.PNG',
   contentText:
     'My first Microverse capstone project is a fundraising program website for children in need, It contains a list of speakers, the main program section, and about page',
   skillsLink1: 'https://github.com/xtrahuman/',
