@@ -358,6 +358,11 @@ section .main-paragraph {
   letter-spacing: 0.03em;
 }
 
+.nopad {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 button:enabled {
   background: rgba(125, 115, 252, 1);
   color: #edecff;
@@ -455,6 +460,12 @@ input[type="text"] {
 
 .view-btn .btn {
   font-size: 12px;
+}
+
+.view-btn .btn a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
 }
 
 .view-btn .btn img {
