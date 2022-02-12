@@ -47,7 +47,7 @@ submitForm.addEventListener('submit', (e) => {
 });
 
 const PageContent = [{
-  title: 'Save a child Fundraising Program',
+  title: 'SCF Program',
   img: './public/desktop-head.PNG',
   contentText:
     ' this project is a fundraising website for children in need, It contains a list of speakers, the main program section, and about page, kindly click on the links below to checkout the project',
