@@ -50,54 +50,46 @@ const PageContent = [{
   title: 'Save a child Fundraising Program',
   img: './public/desktop-head.PNG',
   contentText:
-    'My first Microverse capstone project is a fundraising program website for children in need, It contains a list of speakers, the main program section, and about page',
-  skillsLink1: 'https://github.com/xtrahuman/',
-  skillsLink2: 'https://github.com/xtrahuman/',
-  skillsLink3: 'https://github.com/xtrahuman/',
-  skillsLink4: 'https://github.com/xtrahuman/',
-  skills1: 'css1',
-  skills2: 'html',
+    ' this project is a fundraising website for children in need, It contains a list of speakers, the main program section, and about page, kindly click on the links below to checkout the project',
+  skills1: 'css3',
+  skills2: 'html5',
   skills3: 'bootStrap',
   skills4: 'JavaScript',
+  seeLive: 'https://xtrahuman.github.io/capstone-module1/',
+  seeSource: 'https://github.com/xtrahuman/capstone-module1',
 }, {
-  title: 'Multi-post story',
-  img: '/public/desktop-head.PNG',
+  title: 'Art Gallery',
+  img: '/public/art-gallery1.PNG',
   contentText:
-      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
-  skillsLink1: 'https://github.com/xtrahuman/',
-  skillsLink2: 'https://github.com/xtrahuman/',
-  skillsLink3: 'https://github.com/xtrahuman/',
-  skillsLink4: 'https://github.com/xtrahuman/',
-  skills1: 'css2',
-  skills2: 'html',
-  skills3: 'bootStrap',
-  skills4: 'ruby',
+      'This is a react web app that displays the list of art works gotten from art institute of chicago API, with the search option you can search the artwork, the artworks gotten through this api changes at every interval, kindly click on the link below to checkout the project',
+  skills1: 'css3',
+  skills2: 'React',
+  skills3: 'JavaScript',
+  skills4: 'Redux',
+  seeLive: 'https://art-gallery-project.netlify.app',
+  seeSource: 'https://github.com/xtrahuman/art-gallery',
 }, {
-  title: 'Multi-post story',
-  img: 'asset/Snapshoot_Portfolio.png',
+  title: 'Space Travelers',
+  img: '/public/space-travelers2.PNG',
   contentText:
-      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
-  skillsLink1: 'https://github.com/xtrahuman/',
-  skillsLink2: 'https://github.com/xtrahuman/',
-  skillsLink3: 'https://github.com/xtrahuman/',
-  skillsLink4: 'https://github.com/xtrahuman/',
+      'This is a single page application built with react where I worked with real live data from the SpaceX API. My task was to build a web application for a company that provides commercial and scientific space travel services. The application allows users to book rockets and dragons, and join selected space missions. each booked rockets/dragons and joined missions can be viewed in the profile section, kindly click the link below to view project',
+  skills1: 'css3',
+  skills2: 'React',
+  skills3: 'Redux',
+  skills4: 'JavaScript',
+  seeLive: 'https://space-travelers-hub-react.netlify.app',
+  seeSource: 'https://github.com/Chimwemwe-127001/space-travelers-hub',
+}, {
+  title: 'Movie Time',
+  img: './public/javascript-capstone2.PNG',
+  contentText:
+      'Movie time is a capstone project built mainly with JavaScript, the project is about displaying a list of movies where users can like or write a comment to any of the movies, all likes and comments are stored in an interactive api, Kindly click the links below to view the project',
   skills1: 'css3',
   skills2: 'html',
-  skills3: 'bootStrap',
-  skills4: 'ruby',
-}, {
-  title: 'Multi-post story',
-  img: 'asset/Snapshoot_Portfolio.png',
-  contentText:
-      "Lorem ummy ext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown ptext of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scramble.",
-  skillsLink1: 'https://github.com/xtrahuman/',
-  skillsLink2: 'https://github.com/xtrahuman/',
-  skillsLink3: 'https://github.com/xtrahuman/',
-  skillsLink4: 'https://github.com/xtrahuman/',
-  skills1: 'css4',
-  skills2: 'html',
-  skills3: 'bootStrap',
-  skills4: 'ruby',
+  skills3: 'Webpack',
+  skills4: 'JavaScript',
+  seeLive: 'https://shahiernashaat.github.io/javascript-capstone/',
+  seeSource: 'https://github.com/ShahierNashaat/javascript-capstone',
 }];
 
 const AddModal = () => {
@@ -123,18 +115,18 @@ const AddModal = () => {
             <div class="tools modal-tools">
                 <div class="tool-skill">
                     <ul>
-                        <li><a href=${PageContent[index].skillsLink1}></a>${PageContent[index].skills1}</li>
-                        <li><a href=${PageContent[index].skillsLink2}></a>${PageContent[index].skills2}</li>
-                        <li><a href=${PageContent[index].skillsLink3}></a>${PageContent[index].skills3}</li>
-                        <li><a href=${PageContent[index].skillsLink4}></a>${PageContent[index].skills4}</li>
+                        <li>${PageContent[index].skills1}</li>
+                        <li>${PageContent[index].skills2}</li>
+                        <li>${PageContent[index].skills3}</li>
+                        <li>${PageContent[index].skills4}</li>
                     </ul>
                 </div>
                 </div>
 
             </div>
             <div class='view-btn'>
-            <button type="button" class="btn btn1">see live<span><img src="./asset/Icon.svg"></span></button>
-            <button type="button" class="btn btn2">see source<span><img src="./asset/Vector1.png"></span></button>
+            <button type="button" class="btn btn1 nopad"><a href=${PageContent[index].seeLive}>see live<span><img src="./asset/Icon.svg"></span></a></button>
+            <button type="button" class="btn btn2 nopad"><a href=${PageContent[index].seeSource}>see source<span><img src="./asset/Vector1.png"></span></a></button>
             </div>
         </div>   
  </div>

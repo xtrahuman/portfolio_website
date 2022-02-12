@@ -358,6 +358,11 @@ section .main-paragraph {
   letter-spacing: 0.03em;
 }
 
+.nopad {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 button:enabled {
   background: rgba(125, 115, 252, 1);
   color: #edecff;
@@ -455,6 +460,12 @@ input[type="text"] {
 
 .view-btn .btn {
   font-size: 12px;
+}
+
+.view-btn .btn a {
+  text-decoration: none;
+  color: #fff;
+  padding: 15px;
 }
 
 .view-btn .btn img {
@@ -878,11 +889,11 @@ input[type="text"] {
   }
 
   #mobile_menu.toggle-menu .vector:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
+    transform: translateY(12px) rotate(45deg);
   }
 
   #mobile_menu.toggle-menu .vector:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-12px) rotate(-45deg);
   }
 
   .nav-flex {
