@@ -88,8 +88,19 @@ const PageContent = [{
   skills2: 'html',
   skills3: 'Webpack',
   skills4: 'JavaScript',
-  seeLive: 'https://shahiernashaat.github.io/javascript-capstone/',
+  seeLive: 'mic-car-rental.netlify.app/',
   seeSource: 'https://github.com/ShahierNashaat/javascript-capstone',
+}, {
+  title: 'Car Rentals',
+  img: './public/Car-rental-img2.PNG',
+  contentText:
+      'Car service Webapp where admin can add cars and delete cars. User can navigate smoothly across the differents pages, where he can explore all cars options and details, and make a reservation for a selected item and with his specific details.',
+  skills1: 'Ruby',
+  skills2: 'Rails',
+  skills3: 'React',
+  skills4: 'Redux',
+  seeLive: 'https://shahiernashaat.github.io/javascript-capstone/',
+  seeSource: 'https://github.com/Taher-web-dev/car-rent-front-end',
 }];
 
 const AddModal = () => {
