@@ -88,7 +88,7 @@ const PageContent = [{
   skills2: 'html',
   skills3: 'Webpack',
   skills4: 'JavaScript',
-  seeLive: 'mic-car-rental.netlify.app/',
+  seeLive: 'https://shahiernashaat.github.io/javascript-capstone/',
   seeSource: 'https://github.com/ShahierNashaat/javascript-capstone',
 }, {
   title: 'Car Rentals',
@@ -99,7 +99,7 @@ const PageContent = [{
   skills2: 'Rails',
   skills3: 'React',
   skills4: 'Redux',
-  seeLive: 'https://shahiernashaat.github.io/javascript-capstone/',
+  seeLive: 'mic-car-rental.netlify.app/',
   seeSource: 'https://github.com/Taher-web-dev/car-rent-front-end',
 }];
 
