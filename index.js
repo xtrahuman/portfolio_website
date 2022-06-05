@@ -94,7 +94,7 @@ const PageContent = [{
   title: 'Car Rentals',
   img: './public/Car-rental-img2.PNG',
   contentText:
-      'Car service Webapp where admin can add cars and delete cars. User can navigate smoothly across the differents pages, where he can explore all cars options and details, and make a reservation for a selected item and with his specific details.',
+      'Car service Web app where admin can add cars and delete cars. The user can navigate smoothly across the different pages, where he can explore all car options and details, and make a reservation for a selected item with his specific details.',
   skills1: 'Ruby',
   skills2: 'Rails',
   skills3: 'React',
