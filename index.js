@@ -99,7 +99,7 @@ const PageContent = [{
   skills2: 'Rails',
   skills3: 'React',
   skills4: 'Redux',
-  seeLive: 'mic-car-rental.netlify.app/',
+  seeLive: 'https://mic-car-rental.netlify.app/',
   seeSource: 'https://github.com/Taher-web-dev/car-rent-front-end',
 }];
 
