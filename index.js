@@ -99,8 +99,8 @@ const PageContent = [{
   skills2: 'Rails',
   skills3: 'React',
   skills4: 'Redux',
-  seeLive: 'https://mic-car-rental.netlify.app/',
-  seeSource: 'https://github.com/Taher-web-dev/car-rent-front-end',
+  seeLive: 'https://car-rental-group.netlify.app/',
+  seeSource: 'https://github.com/xtrahuman/car-rent-front-end',
 }];
 
 const AddModal = () => {
