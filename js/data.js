@@ -1,22 +1,64 @@
-// Single source of truth for every v2 concept. Edit projects here and all four pages update.
+// Everything the desktop shows about me and my work. Edit here and every window updates.
 
 export const PROFILE = {
   name: 'Tochukwu Okpara',
-  role: 'Software Developer',
+  role: 'Software Engineer',
   email: 'okpara_tochukwu@yahoo.com',
   github: 'https://github.com/xtrahuman',
-  linkedin: 'https://linkedin.com/in/tochukwu-okpara-449528197',
-  openToWork: true,
-  // Drop your CV into v2/shared/ and set this to '../shared/resume.pdf'
-  resume: '',
+  linkedin: 'https://www.linkedin.com/in/tochukwuokpara/',
+  openToBuild: true,
+  resume: 'resume.pdf',
+};
+
+export const PUBLICATION = {
+  title: 'Autoencoders for anomaly detection: a comprehensive architectural review, comparative insights, and practical guidance',
+  authors: 'Chikezie, C. I., Okpara, T. C., & Mmadumbu, A. C.',
+  venue: 'International Journal of Engineering Research and Technology, 8(5), 2025',
+  url: 'https://doi.org/10.70382/tijert.v08i5.010',
 };
 
 export const PROJECTS = [
   {
+    id: 'scanmora',
+    title: 'Scanmora',
+    kind: 'Live product · personal project',
+    img: 'img/projects/scanmora.jpg',
+    one: 'Browser-based PDF toolkit with 13 tools: Next.js front end, Python back end.',
+    desc: "A browser-based PDF toolkit with 13 tools, including merging PDFs, turning JPG and PNG images into PDFs, and extracting text with OCR for scanned pages. Files stay on the user's device by default, with no sign-up.",
+    highlights: [
+      'Next.js front end with a Python back end',
+      'OCR text extraction for scanned pages',
+      'Local by default: files only leave the device if the user confirms a server conversion',
+      'Built with Claude Code agents',
+    ],
+    tags: ['Next.js', 'React', 'Python'],
+    live: 'https://scanmora.com',
+  },
+  {
+    id: 'scandiweb-store',
+    title: 'Scandiweb Store',
+    kind: 'React storefront · Scandiweb screening test',
+    img: 'img/projects/scandiweb-store-cart.jpg',
+    shots: [
+      { src: 'img/projects/scandiweb-store-cart.jpg', alt: 'Product page with the cart overlay open' },
+      { src: 'img/projects/scandiweb-store.jpg', alt: 'Category page with quick add and an out-of-stock product' },
+    ],
+    one: 'React + Redux storefront with product data from a GraphQL API via Apollo Client.',
+    desc: 'A minimalist e-commerce storefront built for the Scandiweb developer screening test. Products, categories and prices come from a GraphQL endpoint through Apollo Client, with Redux for state management.',
+    highlights: [
+      'Product data fetched from a GraphQL endpoint with Apollo Client',
+      'Category pages (All, Clothes, Tech) and a currency switcher',
+      'Cart overlay with size options, quantities, tax and order total',
+      'Out-of-stock products clearly marked on the listing',
+    ],
+    tags: ['React', 'Redux', 'GraphQL', 'JavaScript'],
+    src: 'https://github.com/xtrahuman/scandiweb-ecommerce-frontend',
+  },
+  {
     id: 'car-rentals',
     title: 'Car Rentals',
     kind: 'Full-stack team project',
-    img: '../shared/img/car-rentals.jpg',
+    img: 'img/projects/car-rentals.jpg',
     one: 'Full-stack team project: Rails API, React + Redux UI, admin tools and reservations.',
     desc: 'A car rental web app built with a team. Admins add and remove cars; users browse the fleet, open a car to see its details and book a reservation for their dates.',
     highlights: [
@@ -25,14 +67,13 @@ export const PROJECTS = [
       'Reservation flow where each user books with their own details',
     ],
     tags: ['Ruby', 'Rails', 'React', 'Redux'],
-    live: 'https://car-rental-group.netlify.app/',
     src: 'https://github.com/xtrahuman/car-rent-front-end',
   },
   {
     id: 'space-travelers',
     title: 'Space Travelers',
     kind: 'React single-page app',
-    img: '../shared/img/space-travelers.jpg',
+    img: 'img/projects/space-travelers.jpg',
     one: 'React + Redux booking app running on live SpaceX API data.',
     desc: 'A booking app for a space travel company, built on live data from the SpaceX API. Users reserve rockets and dragons, join missions, and see everything they booked on their profile page.',
     highlights: [
@@ -41,14 +82,13 @@ export const PROJECTS = [
       'Profile page that collects everything a user booked',
     ],
     tags: ['React', 'Redux', 'JavaScript', 'CSS'],
-    live: 'https://space-travelers-hub-react.netlify.app',
     src: 'https://github.com/Chimwemwe-127001/space-travelers-hub',
   },
   {
     id: 'art-gallery',
     title: 'Art Gallery',
     kind: 'React app on a public API',
-    img: '../shared/img/art-gallery.jpg',
+    img: 'img/projects/art-gallery.jpg',
     one: 'Searchable art browser on the Art Institute of Chicago API.',
     desc: 'Browses artworks from the Art Institute of Chicago API. Search the collection by keyword; the featured works rotate on an interval.',
     highlights: [
@@ -57,14 +97,13 @@ export const PROJECTS = [
       'Featured artworks refresh on an interval',
     ],
     tags: ['React', 'Redux', 'JavaScript', 'CSS'],
-    live: 'https://art-gallery-project.netlify.app',
     src: 'https://github.com/xtrahuman/art-gallery',
   },
   {
     id: 'movie-time',
     title: 'Movie Time',
     kind: 'JavaScript capstone',
-    img: '../shared/img/movie-time.jpg',
+    img: 'img/projects/movie-time.jpg',
     archived: true,
     one: 'Movie list with likes and comments stored through an external API.',
     desc: 'Lists movies that visitors can like and comment on. Likes and comments are stored through an external API.',
@@ -77,7 +116,7 @@ export const PROJECTS = [
     id: 'scf-program',
     title: 'SCF Program',
     kind: 'Responsive landing page',
-    img: '../shared/img/scf-program.jpg',
+    img: 'img/projects/scf-program.jpg',
     archived: true,
     one: 'Fundraising site with speakers, program and about pages.',
     desc: 'A fundraising site for children in need, with a speakers list, the main program and an about page.',
@@ -105,7 +144,7 @@ const countSkills = () => {
 };
 export const SKILLS = countSkills();
 
-export const STACK = ['JavaScript', 'Ruby', 'React', 'Redux', 'Ruby on Rails', 'RSpec', 'HTML', 'CSS', 'Bootstrap', 'Git'];
+export const STACK = ['Python', 'TypeScript', 'JavaScript', 'Ruby', 'Django', 'Node.js', 'Next.js', 'React', 'Redux', 'Ruby on Rails', 'PostgreSQL', 'Redis', 'AWS', 'Docker', 'Claude Code'];
 
 const ENTITIES = {
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',

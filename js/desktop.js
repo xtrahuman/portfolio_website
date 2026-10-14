@@ -1,10 +1,10 @@
 /* eslint-disable no-use-before-define */
 import {
-  PROFILE, PROJECTS, FEATURED, ARCHIVED, SKILLS, STACK, esc, host,
-} from '../shared/data.js';
+  PROFILE, PUBLICATION, PROJECTS, FEATURED, ARCHIVED, SKILLS, STACK, esc, host,
+} from './data.js';
 import {
-  initThemeButton, isDark, setTheme, copyText, mountSwitcher,
-} from '../shared/ui.js';
+  initThemeButton, isDark, setTheme, copyText,
+} from './ui.js';
 
 const BLANK = 'target="_blank" rel="noopener noreferrer"';
 const phone = window.matchMedia('(max-width: 720px)');
@@ -15,9 +15,8 @@ const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const PAGE = '<path d="M10 4h14l7 7v23a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="var(--paper)" stroke="var(--paper-edge)"/><path d="M24 4v7h7" fill="none" stroke="var(--paper-edge)"/>';
 const SVG = {
   folder: '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 10a3 3 0 0 1 3-3h8.5l4 4H33a3 3 0 0 1 3 3v16a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="var(--folder)"/><path d="M4 15.5h32V30a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="var(--folder-front)"/></svg>',
-  doc: `<svg viewBox="0 0 40 40" aria-hidden="true">${PAGE}<path d="M13 17h14M13 21h14M13 25h10M13 29h12" stroke="var(--paper-edge)" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   md: `<svg viewBox="0 0 40 40" aria-hidden="true">${PAGE}<rect x="11" y="18" width="18" height="11" rx="2" fill="var(--accent)"/><path d="M14 26v-5l2 2.4 2-2.4v5M22 21v4.6M20.2 24l1.8 2 1.8-2" fill="none" stroke="var(--accent-ink)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  star: `<svg viewBox="0 0 40 40" aria-hidden="true">${PAGE}<circle cx="20" cy="24" r="8" fill="var(--ok)"/><path d="M16.4 24.2l2.5 2.4 4.8-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  person: `<svg viewBox="0 0 40 40" aria-hidden="true">${PAGE}<circle cx="19.5" cy="21" r="4" fill="var(--accent)"/><path d="M12.5 32a7 7 0 0 1 14 0z" fill="var(--accent)"/></svg>`,
   monitor: '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="6" width="32" height="23" rx="3" fill="var(--paper)" stroke="var(--paper-edge)"/><path d="M15 34h10M20 29v5" stroke="var(--paper-edge)" stroke-width="2" stroke-linecap="round"/><rect x="9" y="18" width="4" height="7" rx="1" fill="var(--accent)"/><rect x="15" y="12" width="4" height="13" rx="1" fill="var(--accent)"/><rect x="21" y="15" width="4" height="10" rx="1" fill="var(--accent)" opacity=".7"/><rect x="27" y="20" width="4" height="5" rx="1" fill="var(--accent)" opacity=".5"/></svg>',
   term: '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="7" width="32" height="26" rx="4" fill="var(--term-bg)" stroke="var(--paper-edge)" stroke-opacity=".5"/><path d="M10.5 15.5l5 4-5 4" fill="none" stroke="var(--term-green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.5 24.5h10" stroke="var(--term-fg)" stroke-width="2.4" stroke-linecap="round"/></svg>',
   mail: '<svg viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="9" width="32" height="22" rx="3" fill="var(--paper)" stroke="var(--paper-edge)"/><path d="M5.5 11.5L20 22l14.5-10.5" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/></svg>',
@@ -31,17 +30,28 @@ const UI = {
   max: '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="2" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
   close: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 2.5l7 7M9.5 2.5l-7 7" stroke="currentColor" stroke-width="1.5"/></svg>',
   back: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  prev: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  next: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   up: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
 };
-const statusPill = '<span class="pill"><i></i>Open to work</span>';
+const BEST_STEP = 2;
+const statusPill = '<span class="pill"><i></i>Open to build</span>';
+const srcLink = (p, label, cls = '') => (p.src ? `<a${cls ? ` class="${cls}"` : ''} href="${p.src}" ${BLANK}>${label}</a>` : '');
+const liveLink = (p, label, cls = '') => (p.live ? `<a${cls ? ` class="${cls}"` : ''} href="${p.live}" ${BLANK}>${label}</a>` : '');
+// the main button goes to the live site when there is one, otherwise to the code
+const projectButtons = (p) => (p.live
+  ? `${liveLink(p, 'See it live ↗', 'btn primary')}${srcLink(p, 'View source ↗', 'btn')}`
+  : srcLink(p, 'View code on GitHub ↗', 'btn primary'));
+const mainUrl = (p) => p.live || p.src;
+const paperLink = `<a href="${PUBLICATION.url}" ${BLANK}>${esc(PUBLICATION.title)}</a>`;
 
 /* ---------- apps ---------- */
 const APPS = {
   welcome: {
     title: 'welcome.md', icon: 'md', w: 520, h: 520, render: renderWelcome,
   },
-  recruiter: {
-    title: 'for-recruiters.md', icon: 'star', w: 560, h: 600, render: renderRecruiter,
+  about: {
+    title: 'about-me.md', icon: 'person', w: 560, h: 620, render: renderAboutMe,
   },
   projects: {
     title: 'projects', icon: 'folder', w: 700, h: 470, render: renderExplorer,
@@ -51,9 +61,6 @@ const APPS = {
   },
   terminal: {
     title: 'terminal — tsh', icon: 'term', w: 600, h: 360, render: renderTerminal,
-  },
-  about: {
-    title: 'about.txt', icon: 'doc', w: 540, h: 480, render: renderAbout,
   },
   contact: {
     title: 'contact.app', icon: 'mail', w: 470, h: 360, render: renderContact,
@@ -69,12 +76,11 @@ PROJECTS.forEach((p) => {
 });
 
 const DESKTOP_ICONS = [
-  { app: 'recruiter', label: 'for-recruiters.md', badge: '30s' },
+  { app: 'about', label: 'about-me.md' },
   { app: 'projects', label: 'projects' },
   { app: 'skills', label: 'skills.sys' },
   { app: 'terminal', label: 'terminal' },
   { app: 'resume', label: 'resume.pdf' },
-  { app: 'about', label: 'about.txt' },
   { app: 'contact', label: 'contact.app' },
 ];
 
@@ -283,7 +289,7 @@ desk.addEventListener('pointerdown', (e) => {
   if (e.target === desk || e.target === iconLayer) iconEls.forEach((b) => b.classList.remove('sel'));
 });
 
-/* ---------- recruiter notification ---------- */
+/* ---------- welcome notification ---------- */
 toast.querySelector('.x').innerHTML = UI.close;
 desk.classList.add('toasting');
 toast.addEventListener('click', (e) => {
@@ -325,18 +331,18 @@ function renderWelcome(body) {
     <div class="welcome">
       <div class="idrow">
         <div class="avatar" aria-hidden="true">TO</div>
-        <div>${statusPill}<span class="eyebrow">Software developer</span></div>
+        <div>${statusPill}<span class="eyebrow">Software engineer</span></div>
       </div>
       <h1>${esc(PROFILE.name)}</h1>
-      <p class="lead">I build web apps end to end: <b>Rails APIs</b> on the back, <b>React + Redux</b> on the front.</p>
+      <p class="lead">I build web apps end to end: <b>Python</b> and <b>Node.js</b> on the back, <b>React</b> and <b>Next.js</b> on the front.</p>
       <dl class="facts">
-        <div><dt>Live projects</dt><dd>${PROJECTS.length}</dd></div>
-        <div><dt>Main stack</dt><dd>React · Rails</dd></div>
-        <div><dt>Works</dt><dd>Solo &amp; in teams</dd></div>
+        <div><dt>Projects</dt><dd>${PROJECTS.length}</dd></div>
+        <div><dt>Main stack</dt><dd>Python · TypeScript</dd></div>
+        <div><dt>Leads</dt><dd>Team of 5</dd></div>
       </dl>
       <div class="actions">
         <button type="button" class="btn primary" data-open="projects">View my work</button>
-        <button type="button" class="btn" data-open="recruiter">30-second summary</button>
+        <button type="button" class="btn" data-open="about">About me</button>
         <button type="button" class="btn" data-open="resume">Résumé</button>
       </div>
       <p class="devhint">Developer? Drag anything around, or type <code>help</code> in the terminal.</p>
@@ -344,24 +350,29 @@ function renderWelcome(body) {
   wireOpen(body);
 }
 
-function renderRecruiter(body) {
+function renderAboutMe(body) {
   body.innerHTML = `
     <div class="summary">
-      <span class="eyebrow">for-recruiters.md · 30-second read</span>
-      <h2>${esc(PROFILE.name)}, software developer</h2>
+      <span class="eyebrow">~/about-me.md</span>
+      <h2>Hi, I'm Tochukwu.</h2>
       <div>${statusPill}</div>
-      <p class="one">Builds full-stack web apps: <b>Ruby on Rails</b> APIs with <b>React + Redux</b> front ends. Has shipped ${PROJECTS.length} live projects, solo and with teams.</p>
+      <p class="one">I'm a senior software engineer based in Canada. I lead teams and build in whatever language a project needs, especially <b>Python</b>, <b>JavaScript</b> and <b>Ruby</b>, and I direct AI agents to keep building fast and fun.</p>
       <h3>Best work</h3>
-      <ul class="best">${FEATURED.map((p) => `
-        <li>
+      <ul class="best">${FEATURED.map((p, i) => `
+        <li${i >= BEST_STEP ? ' hidden' : ''}>
           <img src="${p.img}" alt="">
           <div class="t">
             <button type="button" data-open="${p.id}">${esc(p.title)}</button>
             <span>${esc(p.one)}</span>
-            <nav><a href="${p.live}" ${BLANK}>Live ↗</a><a href="${p.src}" ${BLANK}>Code ↗</a></nav>
+            <nav>${liveLink(p, 'Live ↗')}${srcLink(p, 'Code ↗')}</nav>
           </div>
         </li>`).join('')}
       </ul>
+      ${FEATURED.length > BEST_STEP ? `<button type="button" class="btn sm more-work">Show ${Math.min(BEST_STEP, FEATURED.length - BEST_STEP)} more</button>` : ''}
+      <h3>Publication</h3>
+      <p class="one">${paperLink} (2025)</p>
+      <h3>Background</h3>
+      <p class="one">MSc Computer Science, Birmingham City University · BSc Mechanical Engineering, University of Ibadan</p>
       <h3>Stack</h3>
       <ul class="tags">${STACK.map((t) => `<li>${t}</li>`).join('')}</ul>
       <h3>Get in touch</h3>
@@ -375,6 +386,20 @@ function renderRecruiter(body) {
     </div>`;
   wireOpen(body);
   wireCopy(body);
+  // best work starts with two projects; each click reveals two more, then links to the folder
+  const more = body.querySelector('.more-work');
+  if (more) {
+    more.addEventListener('click', () => {
+      const hiddenItems = [...body.querySelectorAll('.best li[hidden]')];
+      if (!hiddenItems.length) {
+        openApp('projects');
+        return;
+      }
+      hiddenItems.slice(0, BEST_STEP).forEach((li) => { li.hidden = false; });
+      const left = hiddenItems.length - BEST_STEP;
+      more.textContent = left > 0 ? `Show ${Math.min(BEST_STEP, left)} more` : 'Open projects folder';
+    });
+  }
 }
 
 function renderExplorer(body, rec) {
@@ -417,13 +442,58 @@ function renderExplorer(body, rec) {
   draw();
 }
 
+// screenshot slider: swipe, arrow buttons, dots or the arrow keys
+function wireSlider(frame) {
+  const track = frame.querySelector('.slides');
+  const dots = [...frame.querySelectorAll('.dots button')];
+  const count = dots.length;
+  const index = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = (i) => {
+    const target = (i + count) % count;
+    track.scrollTo({ left: target * track.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
+  frame.querySelector('.prev').addEventListener('click', () => go(index() - 1));
+  frame.querySelector('.next').addEventListener('click', () => go(index() + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => go(i)));
+  track.addEventListener('scroll', () => {
+    const current = index();
+    dots.forEach((dot, i) => {
+      if (i === current) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  });
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      go(index() + (e.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
+  // mouse users can drag the image sideways too
+  let startX = null;
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') startX = e.clientX;
+  });
+  track.addEventListener('pointerup', (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 40) go(index() + (dx < 0 ? 1 : -1));
+  });
+}
+
 function renderProject(body, p) {
+  const shots = p.shots || [{ src: p.img, alt: `Screenshot of ${p.title}` }];
+  const many = shots.length > 1;
+  const controls = many ? `
+          <button type="button" class="slide-nav prev" aria-label="Previous screenshot">${UI.prev}</button>
+          <button type="button" class="slide-nav next" aria-label="Next screenshot">${UI.next}</button>
+          <div class="dots">${shots.map((s, i) => `<button type="button" aria-label="Screenshot ${i + 1} of ${shots.length}"${i === 0 ? ' aria-current="true"' : ''}></button>`).join('')}</div>` : '';
   body.innerHTML = `
     <article class="proj">
       <div class="stage">
         <div class="browser">
-          <div class="chrome"><i></i><i></i><i></i><span class="url">${esc(host(p.live))}</span></div>
-          <img src="${p.img}" alt="Screenshot of ${esc(p.title)}">
+          <div class="chrome"><i></i><i></i><i></i><span class="url">${esc(host(mainUrl(p)))}</span></div>
+          <div class="slides"${many ? ' tabindex="0" aria-label="Screenshots; use the arrow keys to move between them"' : ''}>${shots.map((s) => `<img src="${s.src}" alt="${esc(s.alt)}" draggable="false">`).join('')}</div>${controls}
         </div>
       </div>
       <div class="info">
@@ -434,12 +504,10 @@ function renderProject(body, p) {
         <ul class="hl">${p.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>
         <h3>Built with</h3>
         <ul class="tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
-        <div class="actions">
-          <a class="btn primary" href="${p.live}" ${BLANK}>See it live ↗</a>
-          <a class="btn" href="${p.src}" ${BLANK}>View source ↗</a>
-        </div>
+        <div class="actions">${projectButtons(p)}</div>
       </div>
     </article>`;
+  if (many) wireSlider(body.querySelector('.browser'));
 }
 
 function renderSkills(body) {
@@ -459,22 +527,7 @@ function renderSkills(body) {
           <tbody>${SKILLS.map(row).join('')}</tbody>
         </table>
       </div>
-      <div class="mon-foot note">Also: RSpec, Git, GitHub, GitLab. Usage bars come from the projects on this desktop, not self-ratings.</div>
-    </div>`;
-}
-
-function renderAbout(body) {
-  body.innerHTML = `
-    <div class="doc">
-      <span class="eyebrow">~/about.txt</span>
-      <h2>About me</h2>
-      <p>I'm ${esc(PROFILE.name)}, a software developer. I build web apps end to end, from Rails APIs to React and Redux front ends, including full-stack projects built with a team.</p>
-      <p>I care about interfaces that are clear to use and code that's easy for the next person to read. This desktop is built with plain HTML, CSS and JavaScript, with no framework.</p>
-      <div class="stack">
-        <div><h3>Languages</h3><ul><li>JavaScript</li><li>Ruby</li><li>HTML</li><li>CSS</li></ul></div>
-        <div><h3>Frameworks</h3><ul><li>React / Redux</li><li>Ruby on Rails</li><li>RSpec</li><li>Bootstrap</li></ul></div>
-        <div><h3>Tools</h3><ul><li>Git &amp; GitHub</li><li>GitLab</li><li>Webpack</li><li>Codepen</li></ul></div>
-      </div>
+      <div class="mon-foot note">Also used at work: Django, Node.js, TypeScript, PostgreSQL, Redis, AWS, Docker. Usage bars come from the projects on this desktop, not self-ratings.</div>
     </div>`;
 }
 
@@ -483,7 +536,7 @@ function renderContact(body) {
     <div class="doc">
       <span class="eyebrow">contact.app</span>
       <h2>Let's build something</h2>
-      <p>Hiring, or have a project that needs coding? Email is the fastest way to reach me.</p>
+      <p>Have a project or an idea you want built? Email is the fastest way to reach me.</p>
       <div class="mailrow"><output>${esc(PROFILE.email)}</output><button type="button" class="btn primary" data-copy>Copy email</button></div>
       <div class="actions">
         <a class="btn" href="${PROFILE.linkedin}" ${BLANK}>LinkedIn ↗</a>
@@ -518,11 +571,11 @@ function renderResume(body) {
 /* ---------- terminal ---------- */
 const bootTime = Date.now();
 const ALIAS = {
-  'for-recruiters': 'recruiter', recruiters: 'recruiter', summary: 'recruiter', cv: 'resume',
+  'about-me': 'about', summary: 'about', cv: 'resume',
 };
-const TARGETS = ['recruiter', 'projects', 'skills', 'about', 'contact', 'resume', 'welcome', ...PROJECTS.map((p) => p.id)];
+const TARGETS = ['about', 'projects', 'skills', 'contact', 'resume', 'welcome', ...PROJECTS.map((p) => p.id)];
 const LISTING = {
-  '~': ['for-recruiters.md', '<span class="bl">projects/</span>', 'skills.sys', 'about.txt', 'contact.app', 'resume.pdf', 'welcome.md'],
+  '~': ['about-me.md', '<span class="bl">projects/</span>', 'skills.sys', 'contact.app', 'resume.pdf', 'welcome.md'],
   '~/projects': [...FEATURED.map((p) => `<span class="gr">${p.id}.app</span>`), '<span class="bl">archive/</span>'],
   '~/projects/archive': ARCHIVED.map((p) => `<span class="gr">${p.id}.app</span>`),
 };
@@ -566,15 +619,15 @@ function renderTerminal(body, rec) {
 
   const COMMANDS = {
     help() {
-      print(`<span class="hi">Recruiters</span>
-  ${cmd('summary')}         the 30-second version
-  ${cmd('hire')}            how to reach me
+      print(`<span class="hi">Start here</span>
+  ${cmd('about')}           who I am and what I build
+  ${cmd('contact')}         how to reach me
 <span class="hi">Explore</span>
   ${cmd('ls')} [dir]        list files
   ${cmd('cd projects')}     change directory
   ${cmd('open car-rentals')}  open a project in a window
   ${cmd('cat space-travelers')}  print project details here
-  ${cmd('projects')}        list projects with live links
+  ${cmd('projects')}        list projects with links
   ${cmd('skills')}          tech, counted from real projects
   ${cmd('whoami')}          who built this
   ${cmd('neofetch')}        system info
@@ -613,26 +666,25 @@ function renderTerminal(body, rec) {
       const t = normTarget(a[0]);
       const p = PROJECTS.find((x) => x.id === t);
       if (t === 'about') COMMANDS.whoami();
-      else if (t === 'recruiter') COMMANDS.summary();
       else if (t === 'contact') COMMANDS.hire();
       else if (t === 'skills') COMMANDS.skills();
-      else if (t === 'welcome') print(`# Hi, I'm Tochukwu\nSoftware developer. Type ${cmd('projects')} to see my work.`);
+      else if (t === 'welcome') print(`# Hi, I'm Tochukwu\nSoftware engineer. Type ${cmd('projects')} to see my work.`);
       else if (p) {
         const hl = p.highlights.map((h) => `<span class="gr">→</span> ${esc(h)}`).join('\n');
-        print(`<span class="hi">${esc(p.title)}</span> <span class="dim">· ${esc(p.kind)}</span>\n${esc(p.desc)}\n${hl}\n<span class="dim">stack:</span> ${p.tags.join(', ')}\n<span class="dim">live:</span>  ${link(p.live, host(p.live))}`);
+        print(`<span class="hi">${esc(p.title)}</span> <span class="dim">· ${esc(p.kind)}</span>\n${esc(p.desc)}\n${hl}\n<span class="dim">stack:</span> ${p.tags.join(', ')}\n<span class="dim">${p.live ? 'live' : 'code'}:</span>  ${link(mainUrl(p), host(mainUrl(p)))}`);
       } else if (t === 'resume') print(`cat: resume.pdf is a binary file. Try ${cmd('open resume')}`, 'err');
       else print(`cat: ${esc(a[0] || '')}: no such file`, 'err');
     },
     projects() {
-      FEATURED.forEach((p) => print(`<span class="gr">${p.id.padEnd(17)}</span>${esc(p.tags.join(', ')).padEnd(30)}${link(p.live, 'live ↗')}`));
+      FEATURED.forEach((p) => print(`<span class="gr">${p.id.padEnd(17)}</span>${esc(`${p.tags.join(', ')} `).padEnd(36)}${link(mainUrl(p), p.live ? 'live ↗' : 'code ↗')}`));
       print(`<span class="dim">+ ${ARCHIVED.length} archived. ${cmd('ls archive')}</span>`);
     },
     whoami() {
-      print(`<span class="hi">${esc(PROFILE.name)}</span>, software developer  <span class="gr">● open to work</span>\nBuilds web apps end to end: Rails APIs, React + Redux front ends.\n<span class="dim">next:</span> ${cmd('projects')}  ${cmd('summary')}  ${cmd('hire')}`);
+      print(`<span class="hi">${esc(PROFILE.name)}</span>, software engineer  <span class="gr">● open to build</span>\nPython, TypeScript and Rails; leads a team of 5 developers.\n<span class="dim">next:</span> ${cmd('projects')}  ${cmd('about')}  ${cmd('contact')}`);
     },
-    summary() {
-      print('<span class="dim">opening</span> for-recruiters.md');
-      openApp('recruiter');
+    about() {
+      print('<span class="dim">opening</span> about-me.md');
+      openApp('about');
     },
     skills() {
       const total = PROJECTS.length;
@@ -651,8 +703,8 @@ function renderTerminal(body, rec) {
         '<span class="bl">shell</span>     tsh (vanilla JS)',
         `<span class="bl">uptime</span>    ${Math.floor(s / 60)}m ${s % 60}s`,
         `<span class="bl">projects</span>  ${FEATURED.length} featured, ${ARCHIVED.length} archived`,
-        '<span class="bl">stack</span>     React · Redux · Rails',
-        '<span class="bl">status</span>    <span class="gr">open to work</span>',
+        '<span class="bl">stack</span>     Python · TypeScript · React',
+        '<span class="bl">status</span>    <span class="gr">open to build</span>',
       ];
       print(logo.map((l, i) => `<span class="gr">${l}</span>   ${info[i]}`).join('\n'));
     },
@@ -688,7 +740,7 @@ function renderTerminal(body, rec) {
     },
   };
   COMMANDS.contact = COMMANDS.hire;
-  COMMANDS.recruiter = COMMANDS.summary;
+  COMMANDS.summary = COMMANDS.about;
   COMMANDS.dir = COMMANDS.ls;
   COMMANDS.cls = COMMANDS.clear;
 
@@ -790,16 +842,15 @@ function renderTerminal(body, rec) {
 const startBtn = document.getElementById('start');
 const menu = document.getElementById('menu');
 const MENU_ITEMS = [
-  ['recruiter', 'For recruiters', 'star', '30s'],
+  ['about', 'About me', 'person'],
   ['projects', 'Projects', 'folder'],
   ['skills', 'Skills', 'monitor'],
   ['terminal', 'Terminal', 'term'],
-  ['about', 'About me', 'doc'],
   ['contact', 'Contact', 'mail'],
   ['resume', 'Résumé', 'pdf'],
 ];
 menu.innerHTML = `
-  <div class="who"><b>${esc(PROFILE.name)}</b><span class="sub">Software developer · React, Redux, Rails</span>${statusPill}</div>
+  <div class="who"><b>${esc(PROFILE.name)}</b><span class="sub">Software engineer · Python, TypeScript, React</span>${statusPill}</div>
   ${MENU_ITEMS.map(([id, label, icon, hint]) => `<button type="button" class="item" data-open="${id}">${SVG[icon]}${label}${hint ? `<small>${hint}</small>` : ''}</button>`).join('')}
   <a class="item" href="${PROFILE.linkedin}" ${BLANK}>${SVG.linkedin}LinkedIn<small>↗</small></a>
   <hr>
@@ -838,13 +889,13 @@ function showClassic(on) {
           <h2>${esc(p.title)}</h2>
           <p>${esc(p.desc)}</p>
           <ul class="tags">${p.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
-          <div class="actions"><a class="btn primary" href="${p.live}" ${BLANK}>See it live ↗</a><a class="btn" href="${p.src}" ${BLANK}>Source ↗</a></div>
+          <div class="actions">${projectButtons(p)}</div>
         </div>
       </section>`;
     classic.innerHTML = `
       <div class="wrap">
         <header><span class="eyebrow">classic view</span><button type="button" class="btn" data-back>Back to desktop</button></header>
-        <div class="intro">${statusPill}<h1>${esc(PROFILE.name)}</h1><p>Software developer · React, Redux, Ruby on Rails · ${esc(PROFILE.email)}</p>
+        <div class="intro">${statusPill}<h1>${esc(PROFILE.name)}</h1><p>Software engineer · Python, TypeScript, React · ${esc(PROFILE.email)}</p>
           <div class="actions"><a class="btn" href="${PROFILE.linkedin}" ${BLANK}>LinkedIn ↗</a><a class="btn" href="${PROFILE.github}" ${BLANK}>GitHub ↗</a></div>
         </div>
         ${PROJECTS.map(row).join('')}
@@ -874,4 +925,6 @@ if (!phone.matches) {
   openApp('terminal', { instant: true, x: clamp(W - tw - 40, wx + 200, W - tw - 12), y: clamp(H - th - 140, 220, H - th - 12) });
   focusWin('welcome');
 }
-mountSwitcher('desktop');
+// links like /#scandiweb-store or /#about open that window straight away
+const deepLink = decodeURIComponent(window.location.hash.slice(1));
+if (APPS[deepLink]) openApp(deepLink, { instant: true });
