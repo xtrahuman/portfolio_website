@@ -1,0 +1,68 @@
+/* Floating concept switcher. Deliberately one dark look so it reads on every concept and theme. */
+.cx {
+  position: fixed;
+  left: 50%;
+  bottom: var(--cx-bottom, 18px);
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  padding: 4px;
+  border-radius: 12px;
+  background: rgba(18, 20, 23, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.45);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 12.5px;
+  scrollbar-width: none;
+}
+
+.cx a,
+.cx button {
+  flex: none;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #c9d0d6;
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.cx a:hover,
+.cx button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.cx a[aria-current="page"] {
+  background: #fff;
+  color: #121417;
+  font-weight: 600;
+}
+
+.cx .cx-all {
+  color: #8f99a3;
+}
+
+.cx .cx-toggle {
+  color: #8f99a3;
+}
+
+.cx.cx-min a {
+  display: none;
+}
+
+.cx a:focus-visible,
+.cx button:focus-visible {
+  outline: 2px solid #8299ff;
+  outline-offset: 1px;
+}

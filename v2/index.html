@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio v2 Concepts · Tochukwu Okpara</title>
+  <meta name="description" content="Four working directions for Tochukwu Okpara's new portfolio: clean page with command palette, code editor, API docs and desktop OS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="shared/base.css">
+  <link rel="stylesheet" href="gallery.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { /* storage blocked */ }
+  </script>
+</head>
+<body>
+  <main class="g-wrap">
+    <header class="g-head">
+      <span class="logo">TO</span>
+      <div>
+        <span class="eyebrow">Portfolio v2 · concepts</span>
+        <h1>Four ways to show the same work</h1>
+        <p>Each one is a working prototype built on the same projects and contact details. Open them, click around, and pick the direction (or mix parts of several).</p>
+      </div>
+    </header>
+
+    <div class="g-grid">
+      <article class="g-card">
+        <a class="g-mini mini-clean" href="clean/" aria-label="Open the Clean + command palette concept">
+          <span class="mc-pill"></span><span class="mc-h"></span><span class="mc-h short"></span><span class="mc-k">⌘K</span>
+        </a>
+        <div class="g-body">
+          <div class="g-title"><h2>Clean + ⌘K</h2><span class="pill"><i></i>Safest pick</span></div>
+          <p class="idea">A fast, conventional page anyone can skim in ten seconds, with a command palette for keyboard users.</p>
+          <dl>
+            <div><dt>Why recruiters like it</dt><dd>Works for every recruiter, on every phone. Projects are on screen from the first second.</dd></div>
+            <div><dt>Watch out for</dt><dd>Less memorable on its own, so polish and the palette carry the "developer" signal.</dd></div>
+            <div><dt>Build effort</dt><dd>Low</dd></div>
+          </dl>
+          <a class="btn primary" href="clean/">Open concept →</a>
+        </div>
+      </article>
+
+      <article class="g-card">
+        <a class="g-mini mini-editor" href="editor/" aria-label="Open the code editor concept">
+          <span class="me-side"></span>
+          <span class="me-code"><i class="w60"></i><i class="w40 kw"></i><i class="w75"></i><i class="w50 str"></i><i class="w30"></i></span>
+        </a>
+        <div class="g-body">
+          <div class="g-title"><h2>Code editor</h2></div>
+          <p class="idea">The portfolio as a code editor. Each page is a file; the README opens rendered so non-developers still see a normal page.</p>
+          <dl>
+            <div><dt>Why recruiters like it</dt><dd>Says "developer" at a glance. Tech recruiters know this layout from every screen share.</dd></div>
+            <div><dt>Watch out for</dt><dd>Raw code can feel dense. Keep rendered previews as the default view.</dd></div>
+            <div><dt>Build effort</dt><dd>Medium</dd></div>
+          </dl>
+          <a class="btn primary" href="editor/">Open concept →</a>
+        </div>
+      </article>
+
+      <article class="g-card">
+        <a class="g-mini mini-api" href="api/" aria-label="Open the API docs concept">
+          <span class="ma-row"><b class="get">GET</b><code>/v2/me</code></span>
+          <span class="ma-row"><b class="get">GET</b><code>/v2/projects</code></span>
+          <span class="ma-row"><b class="post">POST</b><code>/v2/hire</code></span>
+        </a>
+        <div class="g-body">
+          <div class="g-title"><h2>API docs</h2></div>
+          <p class="idea">The profile as API documentation. Visitors send requests and get details back as JSON or a rendered preview.</p>
+          <dl>
+            <div><dt>Why recruiters like it</dt><dd>Memorable, and a strong fit for back-end and Rails roles.</dd></div>
+            <div><dt>Watch out for</dt><dd>Non-technical recruiters need the plain-English summary at the top.</dd></div>
+            <div><dt>Build effort</dt><dd>Medium</dd></div>
+          </dl>
+          <a class="btn primary" href="api/">Open concept →</a>
+        </div>
+      </article>
+
+      <article class="g-card">
+        <a class="g-mini mini-desktop" href="desktop/" aria-label="Open the desktop OS concept">
+          <span class="md-win a"></span><span class="md-win b"></span><span class="md-bar"></span>
+        </a>
+        <div class="g-body">
+          <div class="g-title"><h2>Desktop OS</h2></div>
+          <p class="idea">A desktop with draggable windows, a project explorer, a recruiter summary and a working terminal.</p>
+          <dl>
+            <div><dt>Why recruiters like it</dt><dd>The most memorable of the four; the recruiter pop-up keeps it skimmable.</dd></div>
+            <div><dt>Watch out for</dt><dd>Busy on first load and needs the phone layout to stay usable.</dd></div>
+            <div><dt>Build effort</dt><dd>High</dd></div>
+          </dl>
+          <a class="btn primary" href="desktop/">Open concept →</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="g-foot">All four read from <code>v2/shared/data.js</code>, so editing a project there updates every concept. The current site at <a href="../">the root</a> is unchanged.</p>
+  </main>
+</body>
+</html>

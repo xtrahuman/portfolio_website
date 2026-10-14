@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TochukwuOS · Tochukwu Okpara</title>
+  <meta name="description" content="Tochukwu Okpara's portfolio as a desktop: draggable windows, a project explorer, a recruiter summary and a working terminal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../shared/switcher.css">
+  <link rel="stylesheet" href="desktop.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { /* storage blocked */ }
+  </script>
+  <script type="module" src="desktop.js"></script>
+</head>
+<body>
+  <div class="os">
+    <main class="desk" id="desk">
+      <div class="wallname" aria-hidden="true"><b>Tochukwu<br>Okpara</b><span>software developer · tochukwuOS 2.0</span></div>
+      <div class="icons" id="icons"></div>
+      <aside class="toast" id="toast" aria-label="Note for recruiters">
+        <div class="t-head"><span class="logo sm">t</span><b>tochukwuOS</b><span class="when">now</span><button type="button" class="x" aria-label="Dismiss"></button></div>
+        <h2>Hiring? Here's the 30-second version.</h2>
+        <p>Role, stack, best three projects and how to reach me, on one page.</p>
+        <div class="actions"><button type="button" class="btn primary sm" data-open="recruiter">Open summary</button><button type="button" class="btn sm" data-open="resume">Résumé</button></div>
+      </aside>
+    </main>
+    <nav class="taskbar" aria-label="Taskbar">
+      <button type="button" class="start" id="start" aria-expanded="false" aria-controls="menu"><span class="logo">t</span><span class="txt">tochukwu</span></button>
+      <div class="tasks" id="tasks"></div>
+      <div class="tray">
+        <button type="button" class="pill" id="status" title="Get in touch"><i></i>Open to work</button>
+        <button type="button" class="traybtn" id="theme" aria-label="Toggle light or dark theme"></button>
+        <span class="clock" id="clock">--:--</span>
+      </div>
+      <div class="menu" id="menu" hidden></div>
+    </nav>
+  </div>
+  <div class="classic" id="classic" hidden></div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tochukwu Okpara · Software Developer</title>
+  <meta name="description" content="Tochukwu Okpara builds web apps end to end with Ruby on Rails and React + Redux. Selected work, skills and contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="../shared/switcher.css">
+  <link rel="stylesheet" href="clean.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { /* storage blocked */ }
+  </script>
+  <script type="module" src="clean.js"></script>
+</head>
+<body>
+  <header class="cl-head">
+    <span class="logo">TO</span>
+    <span class="nm">Tochukwu Okpara</span>
+    <nav aria-label="Sections">
+      <button type="button" data-jump="work">Work</button>
+      <button type="button" data-jump="skills">Skills</button>
+      <button type="button" data-jump="contact">Contact</button>
+    </nav>
+    <button type="button" class="kbar" data-palette><span class="lbl">Search or jump</span> <kbd class="kbd-k">⌘K</kbd></button>
+    <button type="button" class="iconbtn" id="theme" aria-label="Toggle light or dark theme"></button>
+  </header>
+
+  <main class="cl-wrap">
+    <section class="cl-hero">
+      <div class="txt">
+        <span class="pill"><i></i>Open to work</span>
+        <h1>I build web apps <em>end to end</em>.</h1>
+        <p class="lead">I'm Tochukwu Okpara, a software developer. <b>Ruby on Rails</b> APIs on the back, <b>React + Redux</b> on the front. <span id="count"></span></p>
+        <div class="row">
+          <button type="button" class="btn primary" data-jump="work">See my work</button>
+          <button type="button" class="btn" data-copy>Copy email</button>
+          <button type="button" class="btn" data-resume>Résumé</button>
+        </div>
+        <span class="hint">Keyboard person? Press <kbd class="kbd-k">⌘K</kbd> to jump anywhere.</span>
+      </div>
+      <div class="fan" id="fan" aria-hidden="true"></div>
+    </section>
+
+    <section class="cl-sec" id="work">
+      <header><h2>Selected work</h2><span class="eyebrow">Best first</span></header>
+      <div id="cases"></div>
+      <div class="earlier" id="earlier"></div>
+    </section>
+
+    <section class="cl-sec" id="skills">
+      <header><h2>What I work with</h2><span class="eyebrow">Counted from real projects</span></header>
+      <div class="skillrows" id="skillrows"></div>
+      <p class="cl-note">Also: RSpec, Git, GitHub, GitLab. Bars show how many of my projects use each tool, not self-ratings.</p>
+    </section>
+
+    <section class="cl-sec" id="contact">
+      <div class="contact-card">
+        <div>
+          <h2>Hiring? Let's talk.</h2>
+          <p>Email is the fastest way to reach me. My GitHub and LinkedIn are one click away.</p>
+          <div class="mail" id="mail"></div>
+        </div>
+        <div class="acts">
+          <button type="button" class="btn" data-copy>Copy email</button>
+          <a class="btn ghost" id="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn ghost" id="github" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <button type="button" class="btn ghost" data-resume>Résumé (PDF)</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="cl-foot"><span>© Tochukwu Okpara · built with vanilla JS</span><span>Press <kbd class="kbd-k">⌘K</kbd> for shortcuts</span></footer>
+  </main>
+
+  <div class="pal" id="pal" hidden>
+    <div class="pal-box" role="dialog" aria-label="Command palette">
+      <label class="sr" for="pal-q">Search commands</label>
+      <input id="pal-q" placeholder="Type a command or search…" autocomplete="off" spellcheck="false">
+      <ul id="pal-list" role="listbox"></ul>
+      <div class="pal-foot"><span><kbd>↑</kbd> <kbd>↓</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>Esc</kbd> close</span></div>
+    </div>
+  </div>
+  <div class="cl-toast" id="toast" role="status" hidden></div>
+</body>
+</html>
