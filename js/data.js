@@ -19,6 +19,31 @@ export const PUBLICATION = {
 
 export const PROJECTS = [
   {
+    id: 'firstactive365',
+    title: 'FirstActive365 CRM',
+    kind: 'Work project · current role',
+    img: 'img/projects/fa365-schedule.jpg',
+    // personal details in every screenshot are pixelated before they go on the site
+    shots: [
+      { src: 'img/projects/fa365-schedule.jpg', alt: 'Client schedule: a month calendar of shifts by status' },
+      { src: 'img/projects/fa365-bookings.jpg', alt: 'Bookings list with shift filters and candidate assignment' },
+      { src: 'img/projects/fa365-clients.jpg', alt: 'Client list with filters, status tags and quick actions' },
+      { src: 'img/projects/fa365-compliance.jpg', alt: 'Candidate compliance page with framework status and client-specific checks' },
+      { src: 'img/projects/fa365-stats.jpg', alt: 'Sales stats dashboard with call, visit and billing trends' },
+      { src: 'img/projects/fa365-new-shift.jpg', alt: 'Create-shift form with patterns, job type, carer and rates' },
+      { src: 'img/projects/fa365-shift-patterns.jpg', alt: 'Client shift patterns for day, night and sleep-in shifts' },
+    ],
+    one: 'Staffing CRM for a care agency: clients, candidates, compliance, scheduling and bookings.',
+    desc: 'The CRM a healthcare staffing business runs on. Staff manage clients and candidates, track compliance, schedule and fill shifts, log calls and follow sales stats. I lead a team whose main job is to maintain the CRM and its mobile app and build new features for both.',
+    highlights: [
+      'Lead a team of developers and a designer that maintains the CRM and its mobile app',
+      'Python (Django) and Node.js back-end services with a Next.js front end',
+      'Shift scheduling: calendar view, single and recurring shifts, shift patterns and candidate assignment',
+      'Candidate onboarding, compliance tracking, call logs and sales stats, with Redis caching for performance',
+    ],
+    tags: ['Python', 'Django', 'Node.js', 'Next.js'],
+  },
+  {
     id: 'scanmora',
     title: 'Scanmora',
     kind: 'Live product · personal project',

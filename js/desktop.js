@@ -39,10 +39,14 @@ const statusPill = '<span class="pill"><i></i>Open to build</span>';
 const srcLink = (p, label, cls = '') => (p.src ? `<a${cls ? ` class="${cls}"` : ''} href="${p.src}" ${BLANK}>${label}</a>` : '');
 const liveLink = (p, label, cls = '') => (p.live ? `<a${cls ? ` class="${cls}"` : ''} href="${p.live}" ${BLANK}>${label}</a>` : '');
 // the main button goes to the live site when there is one, otherwise to the code
-const projectButtons = (p) => (p.live
-  ? `${liveLink(p, 'See it live ↗', 'btn primary')}${srcLink(p, 'View source ↗', 'btn')}`
-  : srcLink(p, 'View code on GitHub ↗', 'btn primary'));
-const mainUrl = (p) => p.live || p.src;
+const PRIVATE_NOTE = 'Private work project: no public link, and personal details in the screenshots are blurred.';
+const projectButtons = (p) => {
+  if (p.live) return `${liveLink(p, 'See it live ↗', 'btn primary')}${srcLink(p, 'View source ↗', 'btn')}`;
+  if (p.src) return srcLink(p, 'View code on GitHub ↗', 'btn primary');
+  return `<p class="note">${PRIVATE_NOTE}</p>`;
+};
+const mainUrl = (p) => p.live || p.src || '';
+const urlLabel = (p) => (mainUrl(p) ? host(mainUrl(p)) : 'private · internal tool');
 const paperLink = `<a href="${PUBLICATION.url}" ${BLANK}>${esc(PUBLICATION.title)}</a>`;
 
 /* ---------- apps ---------- */
@@ -338,7 +342,7 @@ function renderWelcome(body) {
       <dl class="facts">
         <div><dt>Projects</dt><dd>${PROJECTS.length}</dd></div>
         <div><dt>Main stack</dt><dd>Python · TypeScript</dd></div>
-        <div><dt>Leads</dt><dd>Team of 5</dd></div>
+        <div><dt>Leads</dt><dd>Dev &amp; design team</dd></div>
       </dl>
       <div class="actions">
         <button type="button" class="btn primary" data-open="projects">View my work</button>
@@ -492,7 +496,7 @@ function renderProject(body, p) {
     <article class="proj">
       <div class="stage">
         <div class="browser">
-          <div class="chrome"><i></i><i></i><i></i><span class="url">${esc(host(mainUrl(p)))}</span></div>
+          <div class="chrome"><i></i><i></i><i></i><span class="url">${esc(urlLabel(p))}</span></div>
           <div class="slides"${many ? ' tabindex="0" aria-label="Screenshots; use the arrow keys to move between them"' : ''}>${shots.map((s) => `<img src="${s.src}" alt="${esc(s.alt)}" draggable="false">`).join('')}</div>${controls}
         </div>
       </div>
@@ -671,16 +675,16 @@ function renderTerminal(body, rec) {
       else if (t === 'welcome') print(`# Hi, I'm Tochukwu\nSoftware engineer. Type ${cmd('projects')} to see my work.`);
       else if (p) {
         const hl = p.highlights.map((h) => `<span class="gr">→</span> ${esc(h)}`).join('\n');
-        print(`<span class="hi">${esc(p.title)}</span> <span class="dim">· ${esc(p.kind)}</span>\n${esc(p.desc)}\n${hl}\n<span class="dim">stack:</span> ${p.tags.join(', ')}\n<span class="dim">${p.live ? 'live' : 'code'}:</span>  ${link(mainUrl(p), host(mainUrl(p)))}`);
+        print(`<span class="hi">${esc(p.title)}</span> <span class="dim">· ${esc(p.kind)}</span>\n${esc(p.desc)}\n${hl}\n<span class="dim">stack:</span> ${p.tags.join(', ')}\n${mainUrl(p) ? `<span class="dim">${p.live ? 'live' : 'code'}:</span>  ${link(mainUrl(p), host(mainUrl(p)))}` : `<span class="dim">${PRIVATE_NOTE}</span>`}`);
       } else if (t === 'resume') print(`cat: resume.pdf is a binary file. Try ${cmd('open resume')}`, 'err');
       else print(`cat: ${esc(a[0] || '')}: no such file`, 'err');
     },
     projects() {
-      FEATURED.forEach((p) => print(`<span class="gr">${p.id.padEnd(17)}</span>${esc(`${p.tags.join(', ')} `).padEnd(36)}${link(mainUrl(p), p.live ? 'live ↗' : 'code ↗')}`));
+      FEATURED.forEach((p) => print(`<span class="gr">${p.id.padEnd(17)}</span>${esc(`${p.tags.join(', ')} `).padEnd(36)}${mainUrl(p) ? link(mainUrl(p), p.live ? 'live ↗' : 'code ↗') : '<span class="dim">private</span>'}`));
       print(`<span class="dim">+ ${ARCHIVED.length} archived. ${cmd('ls archive')}</span>`);
     },
     whoami() {
-      print(`<span class="hi">${esc(PROFILE.name)}</span>, software engineer  <span class="gr">● open to build</span>\nPython, TypeScript and Rails; leads a team of 5 developers.\n<span class="dim">next:</span> ${cmd('projects')}  ${cmd('about')}  ${cmd('contact')}`);
+      print(`<span class="hi">${esc(PROFILE.name)}</span>, software engineer  <span class="gr">● open to build</span>\nPython, TypeScript and Rails; leads a team of developers and a designer.\n<span class="dim">next:</span> ${cmd('projects')}  ${cmd('about')}  ${cmd('contact')}`);
     },
     about() {
       print('<span class="dim">opening</span> about-me.md');
